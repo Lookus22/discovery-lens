@@ -1,0 +1,31 @@
+# Discovery Lens — pip dependencies
+# All packages must be CPU-only and Streamlit Community Cloud compatible
+# Do not add new packages without PM sign-off
+
+# App framework
+streamlit>=1.32.0
+
+# LLM
+groq>=0.5.0
+
+# Embeddings (CPU-only)
+sentence-transformers>=2.7.0
+
+# Clustering & ML
+scikit-learn>=1.4.0
+numpy>=1.26.0
+
+# Sentiment
+nltk>=3.8.1
+vaderSentiment>=3.3.2
+
+# Visualisation
+plotly>=5.20.0
+
+# File parsing
+pypdf>=4.1.0
+python-docx>=1.1.0
+pandas>=2.2.0
+
+# Utilities
+python-dotenv>=1.0.0

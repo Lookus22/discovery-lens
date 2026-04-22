@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "description": "Approved LLM output schema. Do not change without PM sign-off (Lucas).",
+    "last_updated": "2026-04-22",
+    "owner": "Lucas (schema), Lucas (llm.py + system prompt)"
+  },
+  "rules": {
+    "json_only": "Return ONLY valid JSON. No preamble. No markdown fences.",
+    "jtbd_format": "When I [situation], I want to [motivation], so I can [outcome].",
+    "solutions_per_opportunity": "2-3",
+    "assumptions_per_solution": "1-2",
+    "risk_values": "exactly: low | medium | high",
+    "priority_score": "Return 0 — pipeline overwrites this."
+  },
+  "example_output": {
+    "goal": "Increase 30-day retention for new users on the mobile app",
+    "opportunities": [
+      {
+        "jtbd": "When I first open the app after signing up, I want to understand what I can do with it, so I can decide if it is worth my time.",
+        "priority_score": 0,
+        "cluster_id": 0,
+        "solutions": [
+          {
+            "label": "Interactive onboarding walkthrough",
+            "assumptions": [
+              {"text": "New users do not understand the core value proposition from the home screen alone.", "risk": "high"},
+              {"text": "An interactive walkthrough will not feel annoying if it can be skipped.", "risk": "medium"}
+            ]
+          },
+          {
+            "label": "Progress-based empty states",
+            "assumptions": [
+              {"text": "Empty states are a key drop-off point in the first session.", "risk": "medium"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
