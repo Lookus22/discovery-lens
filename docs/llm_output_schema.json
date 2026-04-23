@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Approved LLM output schema. Do not change without PM sign-off (Lucas).",
-    "last_updated": "2026-04-22",
+    "last_updated": "2026-04-23",
     "owner": "Lucas (schema), Lucas (llm.py + system prompt)"
   },
   "rules": {
@@ -10,15 +10,17 @@
     "solutions_per_opportunity": "2-3",
     "assumptions_per_solution": "1-2",
     "risk_values": "exactly: low | medium | high",
-    "priority_score": "Return 0 — pipeline overwrites this."
+    "odi_fields": "Do not generate importance, satisfaction, or opportunity_score — these are computed by odi_scorer.py and injected post-parse by llm.py on cluster_id."
   },
   "example_output": {
     "goal": "Increase 30-day retention for new users on the mobile app",
     "opportunities": [
       {
         "jtbd": "When I first open the app after signing up, I want to understand what I can do with it, so I can decide if it is worth my time.",
-        "priority_score": 0,
         "cluster_id": 0,
+        "importance": 0.38,
+        "satisfaction": 0.27,
+        "opportunity_score": 0.28,
         "solutions": [
           {
             "label": "Interactive onboarding walkthrough",
