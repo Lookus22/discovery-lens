@@ -4,5 +4,4 @@
 
 # Setup
 
-cp .env.example .env
-# then fill in your API key
+cp .env.example .env # then fill in your API key
