@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Lens · Project Plan</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f7f4;--bg2:#efede8;--bg3:#e3e1da;--surface:#fff;
+  --text:#1a1a18;--text2:#57574f;--text3:#8a8a80;
+  --acc:#7F77DD;--al:#EEEDFE;--ad:#534AB7;
+  --grn:#1D9E75;--gl:#E1F5EE;--gd:#085041;
+  --amb:#BA7517;--aml:#FAEEDA;--amd:#633806;
+  --cor:#D85A30;--cl:#FAECE7;--cd:#4A1B0C;
+  --blu:#378ADD;--bl:#E6F1FB;--bd:#185FA5;
+  --wip:#9B59B6;--wipl:#F3E8FF;--wipd:#5B2C6F;
+  --bdr:rgba(0,0,0,0.09);--bdr2:rgba(0,0,0,0.05);
+  --r:8px;--rl:12px
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.6}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.hd{background:var(--surface);border-bottom:1px solid var(--bdr);padding:11px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.hd-logo{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700}
+.hd-badge{width:22px;height:22px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700}
+.hd-meta{font-size:11px;color:var(--text3)}
+.hd-r{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2)}
+.pb{width:110px;height:3px;background:var(--bg3);border-radius:99px;overflow:hidden}
+.pbf{height:100%;background:var(--acc);border-radius:99px;transition:width .4s;width:0}
+.nav{background:var(--surface);border-bottom:1px solid var(--bdr);padding:0 24px;display:flex;overflow-x:auto}
+.nt{padding:9px 14px;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+.nt:hover{color:var(--text)}.nt.on{color:var(--acc);border-bottom-color:var(--acc)}
+.main{max-width:1100px;margin:0 auto;padding:20px 24px}
+.pnl{display:none}.pnl.on{display:block}
+.sec{margin-bottom:22px}
+.sec-t{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.card{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:14px 18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.alert{padding:9px 13px;border-radius:var(--r);font-size:12px;margin-bottom:14px;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.a-amb{background:var(--aml);border:1px solid rgba(186,117,23,.25);color:var(--amd)}
+.a-acc{background:var(--al);border:1px solid rgba(127,119,221,.25);color:var(--ad)}
+.a-grn{background:var(--gl);border:1px solid rgba(29,158,117,.25);color:var(--gd)}
+.bdg{display:inline-block;font-size:10px;padding:2px 6px;border-radius:99px;font-weight:600}
+.bgrn{background:var(--gl);color:var(--gd)}.bamb{background:var(--aml);color:var(--amd)}
+.bacc{background:var(--al);color:var(--ad)}.bblu{background:var(--bl);color:var(--bd)}
+.bgry{background:var(--bg3);color:var(--text2)}.bcor{background:var(--cl);color:var(--cd)}
+.bwip{background:var(--wipl);color:var(--wipd)}
+.sc{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:12px 14px;text-align:center}
+.sv{font-size:26px;font-weight:700;color:var(--acc)}.sl{font-size:10px;color:var(--text3);margin-top:2px}
+.tl{padding:16px 50px 4px}
+.tl-track{height:3px;background:var(--bg3);border-radius:99px;position:relative;margin-bottom:0}
+.tl-fill{position:absolute;top:0;left:0;height:100%;background:var(--acc);border-radius:99px}
+.tl-pts{position:relative;height:68px}
+.tl-pt{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px}
+.tl-dot{width:11px;height:11px;border-radius:50%;position:relative;top:-7px;flex-shrink:0;border:2px solid var(--bdr);background:var(--surface)}
+.tl-dot.done{background:var(--acc);border-color:var(--acc)}
+.tl-dot.today{background:var(--grn);border-color:var(--grn);box-shadow:0 0 0 3px rgba(29,158,117,.2)}
+.tl-dot.ms{background:var(--surface);border-color:var(--acc);border-width:2.5px}
+.tl-dot.tbd{background:var(--surface);border-color:var(--amb);border-style:dashed}
+.tl-lbl{font-size:10px;font-weight:600;color:var(--text);text-align:center;max-width:72px;line-height:1.3}
+.tl-dt{font-size:9px;color:var(--text3);text-align:center}
+.ms{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:12px 14px}
+.ms.cur{border-color:var(--acc);border-width:1.5px}
+.ms-n{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.ms-t{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.ms-d{font-size:11px;color:var(--text2);margin-bottom:8px}
+.ms-d.tbd{color:var(--amb);font-weight:600}
+.ms-li{font-size:11px;color:var(--text2);display:flex;gap:4px;margin-bottom:3px}
+.ms-li::before{content:'→';color:var(--acc);flex-shrink:0;font-size:10px;margin-top:1px}
+.sp-nav{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.sp-tab{padding:5px 13px;border-radius:var(--r);font-size:12px;font-weight:500;border:1px solid var(--bdr);background:var(--surface);color:var(--text2);cursor:pointer;transition:all .15s}
+.sp-tab.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.sp-pnl{display:none}.sp-pnl.on{display:block}
+.sp-hd{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:11px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sp-t{font-size:14px;font-weight:600}.sp-dt{font-size:11px;color:var(--text2)}
+.sp-g{font-size:12px;color:var(--text);flex:1;min-width:180px}
+.sp-pr{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text2)}
+.sp-bar{width:80px;height:3px;background:var(--bg3);border-radius:99px}
+.sp-barf{height:100%;background:var(--acc);border-radius:99px;transition:width .3s;width:0}
+.tc{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);margin-bottom:9px;overflow:hidden}
+.tc-hd{padding:8px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--bdr2);cursor:pointer;user-select:none}
+.tc-hd:hover{background:var(--bg)}
+.cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.tc-n{font-size:12px;font-weight:600;color:var(--text)}.tc-c{font-size:10px;color:var(--text3);margin-left:auto}
+.tc-body{padding:3px 0}
+ 
+/* ── ENHANCED TASK ROW ── */
+.task{display:flex;align-items:flex-start;gap:9px;padding:6px 14px 6px 14px;transition:background .1s;position:relative}
+.task:hover{background:var(--bg)}
+.task-main{display:flex;align-items:flex-start;gap:9px;flex:1;min-width:0}
+.task input[type=checkbox]{margin-top:3px;width:13px;height:13px;accent-color:var(--acc);cursor:pointer;flex-shrink:0}
+.tlbl{font-size:12px;color:var(--text);line-height:1.4;flex:1;min-width:0;cursor:pointer}
+.tlbl.done{text-decoration:line-through;color:var(--text3)}
+.tlbl.wip-text{color:var(--wipd);font-style:italic}
+.ttag{font-size:9px;padding:1px 6px;border-radius:99px;font-weight:600;white-space:nowrap;flex-shrink:0;margin-top:3px}
+.tp{background:var(--bl);color:var(--bd)}.tu{background:var(--al);color:var(--ad)}
+.tl2{background:var(--aml);color:var(--amd)}.td{background:var(--gl);color:var(--gd)}
+.tpm{background:var(--cl);color:var(--cd)}.ta{background:var(--bg3);color:var(--text2)}
+.task-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:3px}
+ 
+/* Task controls */
+.task-controls{display:none;align-items:center;gap:4px;flex-shrink:0;margin-top:1px}
+.task:hover .task-controls{display:flex}
+.tc-btn{background:none;border:1px solid var(--bdr);border-radius:4px;padding:2px 7px;font-size:10px;cursor:pointer;color:var(--text2);white-space:nowrap;transition:all .1s}
+.tc-btn:hover{border-color:var(--acc);color:var(--acc)}
+.tc-btn.wip-on{background:var(--wipl);border-color:var(--wipd);color:var(--wipd)}
+.tc-btn.del{color:var(--cor)}
+.tc-btn.del:hover{border-color:var(--cor);background:var(--cl)}
+ 
+/* Assignee chip */
+.assignee{display:inline-flex;align-items:center;gap:3px;background:var(--bg2);border:1px solid var(--bdr);border-radius:99px;padding:1px 7px;font-size:10px;color:var(--text2);cursor:pointer;transition:all .1s}
+.assignee:hover{border-color:var(--acc);color:var(--acc)}
+.assignee.assigned{background:var(--al);border-color:rgba(127,119,221,.4);color:var(--ad);font-weight:600}
+.assignee .av{width:14px;height:14px;border-radius:50%;font-size:8px;font-weight:700;color:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+ 
+/* WIP badge */
+.wip-badge{display:inline-flex;align-items:center;gap:3px;background:var(--wipl);border:1px solid rgba(155,89,182,.3);border-radius:99px;padding:1px 7px;font-size:10px;color:var(--wipd);font-weight:600}
+.wip-badge::before{content:'◉';font-size:8px}
+ 
+/* Comment panel */
+.comment-panel{background:var(--bg);border-top:1px solid var(--bdr2);padding:8px 14px 10px;display:none}
+.comment-panel.open{display:block}
+.comment-list{margin-bottom:8px}
+.comment-item{display:flex;gap:7px;margin-bottom:7px;align-items:flex-start}
+.comment-av{width:20px;height:20px;border-radius:50%;font-size:9px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.comment-body{flex:1}
+.comment-author{font-size:10px;font-weight:700;color:var(--text)}
+.comment-time{font-size:10px;color:var(--text3);margin-left:5px}
+.comment-text{font-size:11px;color:var(--text2);line-height:1.5}
+.comment-del{font-size:10px;color:var(--text3);cursor:pointer;margin-left:4px}
+.comment-del:hover{color:var(--cor)}
+.comment-input-row{display:flex;gap:7px;align-items:center}
+.comment-input{flex:1;border:1px solid var(--bdr);border-radius:var(--r);padding:5px 9px;font-size:11px;font-family:inherit;background:var(--surface);color:var(--text);outline:none;transition:border-color .15s}
+.comment-input:focus{border-color:var(--acc)}
+.comment-who{border:1px solid var(--bdr);border-radius:var(--r);padding:5px 7px;font-size:11px;font-family:inherit;background:var(--surface);color:var(--text);outline:none;cursor:pointer}
+.comment-submit{background:var(--acc);color:#fff;border:none;border-radius:var(--r);padding:5px 11px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:600;transition:opacity .15s}
+.comment-submit:hover{opacity:.85}
+.comment-count{font-size:10px;color:var(--acc);cursor:pointer;font-weight:600;display:none}
+.comment-count.has{display:inline-flex;align-items:center;gap:2px}
+ 
+/* Add task */
+.add-task-row{padding:6px 14px 10px;border-top:1px solid var(--bdr2)}
+.add-task-btn{background:none;border:1px dashed var(--bdr);border-radius:var(--r);padding:5px 12px;font-size:11px;color:var(--text3);cursor:pointer;width:100%;text-align:left;transition:all .15s}
+.add-task-btn:hover{border-color:var(--acc);color:var(--acc);background:var(--al)}
+.add-task-form{display:none;flex-direction:column;gap:6px}
+.add-task-form.open{display:flex}
+.add-task-input{border:1px solid var(--bdr);border-radius:var(--r);padding:6px 10px;font-size:12px;font-family:inherit;background:var(--surface);color:var(--text);outline:none}
+.add-task-input:focus{border-color:var(--acc)}
+.add-task-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.add-task-select{border:1px solid var(--bdr);border-radius:var(--r);padding:4px 7px;font-size:11px;font-family:inherit;background:var(--surface);color:var(--text);outline:none;cursor:pointer}
+.add-task-save{background:var(--acc);color:#fff;border:none;border-radius:var(--r);padding:5px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit}
+.add-task-cancel{background:none;border:1px solid var(--bdr);border-radius:var(--r);padding:5px 11px;font-size:11px;cursor:pointer;font-family:inherit;color:var(--text2)}
+ 
+/* Assignee dropdown */
+.assign-dropdown{position:absolute;top:100%;right:0;background:var(--surface);border:1px solid var(--bdr);border-radius:var(--r);box-shadow:0 4px 16px rgba(0,0,0,.1);z-index:50;min-width:130px;padding:4px}
+.assign-option{display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:4px;cursor:pointer;font-size:11px;color:var(--text)}
+.assign-option:hover{background:var(--bg2)}
+.assign-option .av{width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+ 
+/* Data table */
+table.dt{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--rl);overflow:hidden;border:1px solid var(--bdr)}
+table.dt th{background:var(--bg2);padding:8px 13px;text-align:left;font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--bdr)}
+table.dt td{padding:8px 13px;font-size:12px;color:var(--text);border-bottom:1px solid var(--bdr2);vertical-align:top}
+table.dt tr:last-child td{border-bottom:none}
+table.dt tr:hover td{background:var(--bg)}
+.stk{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:12px 14px}
+.stk-lay{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.stk-item{margin-bottom:6px}.stk-name{font-size:12px;font-weight:600;color:var(--text)}.stk-d{font-size:11px;color:var(--text2)}
+.flow{display:flex;flex-direction:column;gap:5px}
+.fs{display:flex;align-items:flex-start;gap:10px;padding:7px 11px;background:var(--bg);border-radius:var(--r)}
+.fn{width:20px;height:20px;background:var(--acc);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.ft{font-size:12px;color:var(--text);line-height:1.4}
+.fsub{font-size:11px;color:var(--text2);margin-top:1px}
+.fi{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--bdr2);font-size:12px;color:var(--text)}
+.fi:last-child{border-bottom:none}
+.fmvp{background:var(--gl);color:var(--gd);font-size:9px;padding:2px 5px;border-radius:99px;font-weight:700;flex-shrink:0;margin-top:1px}
+.fstr{background:var(--bg3);color:var(--text3);font-size:9px;padding:2px 5px;border-radius:99px;font-weight:700;flex-shrink:0;margin-top:1px}
+.fout{background:var(--cl);color:var(--cd);font-size:9px;padding:2px 5px;border-radius:99px;font-weight:700;flex-shrink:0;margin-top:1px}
+.repo{background:#1b1b18;color:#d0ceca;border-radius:var(--rl);padding:14px 18px;font-family:'SF Mono','Monaco','Consolas',monospace;font-size:11px;line-height:1.9}
+.repo .dir{color:#7F77DD}.repo .cmt{color:#555}
+.ct{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--r);padding:9px 13px;margin-bottom:7px}
+.ct-m{font-size:12px;font-weight:600;color:var(--acc);margin-bottom:3px}
+.ct-io{font-size:11px;color:var(--text2);line-height:1.6}
+.ct-io strong{color:var(--text)}
+table.rt{width:100%;border-collapse:collapse;font-size:12px;background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden}
+table.rt th{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;padding:7px 12px;background:var(--bg2);border-bottom:1px solid var(--bdr);text-align:left}
+table.rt td{padding:8px 12px;border-bottom:1px solid var(--bdr2);vertical-align:top;color:var(--text)}
+table.rt tr:last-child td{border-bottom:none}
+.tip{background:var(--surface);border:1px solid var(--bdr);border-radius:var(--rl);padding:13px 15px}
+.tip-t{font-size:12px;font-weight:600;color:var(--text);margin-bottom:7px}
+.tip-b{font-size:12px;color:var(--text2);line-height:1.7}
+.tip-b li{margin-left:15px;margin-bottom:3px}
+.buf{background:var(--aml);border:1px solid rgba(186,117,23,.2);border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--amd);margin-top:8px}
+@media(max-width:900px){.g4{grid-template-columns:1fr 1fr}.g5{grid-template-columns:repeat(3,1fr)}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g4,.g3,.g2{grid-template-columns:1fr}}
+ 
+/* Editable tip card */
+.tip-editable{position:relative}
+.tip-edit-btn{position:absolute;top:10px;right:10px;background:none;border:1px solid var(--bdr);border-radius:4px;padding:2px 8px;font-size:10px;color:var(--text3);cursor:pointer;transition:all .1s}
+.tip-edit-btn:hover{border-color:var(--acc);color:var(--acc)}
+.tip-content[contenteditable="true"]{outline:1px dashed var(--acc);border-radius:4px;padding:4px;background:var(--al)}
+.add-agreement-btn{background:none;border:1px dashed var(--bdr);border-radius:var(--rl);padding:20px;font-size:12px;color:var(--text3);cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+.add-agreement-btn:hover{border-color:var(--acc);color:var(--acc);background:var(--al)}
+.tip-delete-btn{position:absolute;top:10px;right:60px;background:none;border:1px solid var(--bdr);border-radius:4px;padding:2px 8px;font-size:10px;color:var(--text3);cursor:pointer;transition:all .1s}
+.tip-delete-btn:hover{border-color:var(--cor);color:var(--cor);background:var(--cl)}
+ 
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border-radius:var(--rl);padding:20px 24px;max-width:460px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.15);transform:translateY(8px);transition:transform .2s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-t{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.modal-sub{font-size:11px;color:var(--text3);margin-bottom:16px}
+.modal-label{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:5px;margin-top:12px}
+.modal-input{width:100%;border:1px solid var(--bdr);border-radius:var(--r);padding:7px 10px;font-size:12px;font-family:inherit;background:var(--bg);color:var(--text);outline:none}
+.modal-input:focus{border-color:var(--acc)}
+.modal-textarea{width:100%;border:1px solid var(--bdr);border-radius:var(--r);padding:7px 10px;font-size:12px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;resize:vertical;min-height:60px}
+.modal-textarea:focus{border-color:var(--acc)}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.modal-save{background:var(--acc);color:#fff;border:none;border-radius:var(--r);padding:7px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+.modal-cancel{background:none;border:1px solid var(--bdr);border-radius:var(--r);padding:7px 14px;font-size:12px;cursor:pointer;font-family:inherit;color:var(--text2)}
+</style>
+</head>
+<body>
+ 
+<div class="hd">
+  <div class="hd-logo">
+    <div class="hd-badge">DL</div>
+    Discovery Lens
+  </div>
+  <div class="hd-meta">Neue Fische / SPICED · Data Science &amp; AI Capstone · Apr 22 – May 21, 2026</div>
+  <div class="hd-r">
+    <span id="pct-lbl">0%</span>
+    <div class="pb"><div class="pbf" id="pbf"></div></div>
+    <span>tasks done</span>
+  </div>
+</div>
+ 
+<div class="nav">
+  <div class="nt on" onclick="nav('overview',this)">Overview</div>
+  <div class="nt" onclick="nav('sprints',this)">Sprint Plan</div>
+  <div class="nt" onclick="nav('data',this)">Data &amp; Stack</div>
+  <div class="nt" onclick="nav('specs',this)">Product Specs</div>
+  <div class="nt" onclick="nav('resources',this)">Resources &amp; Risks</div>
+</div>
+ 
+<div class="main">
+ 
+<!-- OVERVIEW -->
+<div class="pnl on" id="pnl-overview">
+  <div class="alert a-amb"><span>⚠️</span><div><strong>Action required:</strong> The mid-project presentation date is not yet confirmed. Locate it in your bootcamp calendar and update the plan before your first daily standup. It's currently marked as TBD (estimated ~May 8).</div></div>
+  <div class="alert a-acc"><span>📌</span><div><strong>What is Discovery Lens?</strong> A Streamlit tool that helps product managers at any tech company (SaaS, mobile app, web product) synthesise discovery data — interviews, app reviews, support tickets, usability notes — into a structured Opportunity-Solution Tree grounded in evidence. Any PM sets their product goal, uploads their discovery files, and the tool clusters insights, maps opportunities in JTBD language, and shows exactly which evidence justifies each decision.</div></div>
+  <div class="sec">
+    <div class="sec-t">Quick stats</div>
+    <div class="g5">
+      <div class="sc"><div class="sv">4</div><div class="sl">weeks</div></div>
+      <div class="sc"><div class="sv">4</div><div class="sl">team members</div></div>
+      <div class="sc"><div class="sv" id="stat-total">0</div><div class="sl">tracked tasks</div></div>
+      <div class="sc"><div class="sv">2</div><div class="sl">demo products</div></div>
+      <div class="sc"><div class="sv">May 21</div><div class="sl">final presentation</div></div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">Project timeline</div>
+    <div class="card">
+      <div class="tl">
+        <div class="tl-track"><div class="tl-fill" style="width:0%"></div></div>
+        <div class="tl-pts">
+          <div class="tl-pt" style="left:0%"><div class="tl-dot today"></div><div class="tl-lbl">Kickoff &amp; Architecture</div><div class="tl-dt">Apr 22</div></div>
+          <div class="tl-pt" style="left:14%"><div class="tl-dot ms"></div><div class="tl-lbl">M1: Pipeline end-to-end</div><div class="tl-dt">May 1</div></div>
+          <div class="tl-pt" style="left:50%"><div class="tl-dot tbd"></div><div class="tl-lbl">M2: Mid-project presentation</div><div class="tl-dt" style="color:var(--amb);font-weight:600">TBD ~May 8</div></div>
+          <div class="tl-pt" style="left:69%"><div class="tl-dot ms"></div><div class="tl-lbl">M3: Feature freeze</div><div class="tl-dt">May 12</div></div>
+          <div class="tl-pt" style="left:100%"><div class="tl-dot ms"></div><div class="tl-lbl">M4: Final presentation</div><div class="tl-dt">May 21</div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;padding:0 10px;flex-wrap:wrap">
+        <span style="font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--grn);display:inline-block"></span>Today / start</span>
+        <span style="font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--surface);border:2.5px solid var(--acc);display:inline-block"></span>Milestone</span>
+        <span style="font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px dashed var(--amb);display:inline-block"></span>Date TBD</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">Milestones</div>
+    <div class="g4">
+      <div class="ms cur"><div class="ms-n">Milestone 1</div><div class="ms-t">Foundation day</div><div class="ms-d">Apr 22 — TODAY</div><div class="ms-li">Repo created, team aligned on architecture</div><div class="ms-li">Groq API key working, skeleton app running</div><div class="ms-li">Synthetic datasets #1 and #2 generated</div></div>
+      <div class="ms"><div class="ms-n">Milestone 2</div><div class="ms-t">Pipeline end-to-end</div><div class="ms-d">May 1</div><div class="ms-li">Upload → embed → cluster → LLM → OST renders</div><div class="ms-li">Traceability: node → source quotes working</div><div class="ms-li">Both synthetic datasets produce valid OST</div><div class="ms-li">Priority scores visible per opportunity</div></div>
+      <div class="ms"><div class="ms-n">Milestone 3</div><div class="ms-t">Mid-project presentation</div><div class="ms-d tbd">⚠ Date TBD — confirm now</div><div class="ms-li">Deployed on Streamlit Community Cloud</div><div class="ms-li">UI polished, two demo scenarios working</div><div class="ms-li">Priority matrix + evidence heatmap visible</div><div class="ms-li">10-min demo script rehearsed</div></div>
+      <div class="ms"><div class="ms-n">Milestone 4</div><div class="ms-t">Final presentation</div><div class="ms-d">May 21</div><div class="ms-li">Feature freeze from May 12</div><div class="ms-li">Two polished demo products running live</div><div class="ms-li">Presentation deck tells full product story</div><div class="ms-li">Future roadmap: integrations, multi-user, quant data</div></div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">The two demo products (for presentation day)</div>
+    <div class="g2">
+      <div class="card"><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px">Product A — B2B SaaS <span class="bdg bacc">project management tool</span></div><div style="font-size:12px;color:var(--text2);line-height:1.6">Modelled on tools like Notion / Linear / Asana. Input data: support tickets, G2 reviews, usability test notes, interview transcripts. Demonstrates the B2B / SaaS PM discovery use case.</div></div>
+      <div class="card"><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px">Product B — Consumer mobile app <span class="bdg bgrn">fintech / payments</span></div><div style="font-size:12px;color:var(--text2);line-height:1.6">Modelled on products like Wolt Pay / Vinted / Revolut. Input data: App Store &amp; Play Store reviews, customer support chats, interview transcripts. Demonstrates consumer app discovery.</div></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- SPRINT PLAN -->
+<div class="pnl" id="pnl-sprints">
+  <div class="alert a-acc">
+    <span>📋</span>
+    <div>Assign tasks to team members using the <strong>Assign</strong> button on each task. Mark tasks as <strong>WIP</strong> when in progress. Add comments to any task with the <strong>💬</strong> button. Add new tasks with <strong>+ Add task</strong> at the bottom of each category.</div>
+  </div>
+  <div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--text2)">
+    <strong style="color:var(--text)">Tag guide:</strong>
+    <span class="ttag tp">Pipeline</span> Data processing, embeddings, clustering
+    <span class="ttag tu">UI</span> Streamlit, visualisations
+    <span class="ttag tl2">LLM</span> Groq, prompts, JTBD
+    <span class="ttag td">Data</span> Datasets, testing
+    <span class="ttag tpm">PM</span> Product, demo, presentation
+    <span class="ttag ta">All</span> Whole team
+    &nbsp;|&nbsp;
+    <span class="bdg bwip">◉ WIP</span> In progress
+  </div>
+  <div class="sp-nav">
+    <div class="sp-tab on" onclick="sprint('w1',this)">Week 1 · Apr 22–27</div>
+    <div class="sp-tab" onclick="sprint('w2',this)">Week 2 · Apr 28–May 4</div>
+    <div class="sp-tab" onclick="sprint('w3',this)">Week 3 · May 5–11</div>
+    <div class="sp-tab" onclick="sprint('w4',this)">Week 4 · May 12–21</div>
+  </div>
+ 
+  <!-- WEEK 1 -->
+  <div class="sp-pnl on" id="sp-w1">
+    <div class="sp-hd">
+      <div><div class="sp-t">Week 1 — Foundation</div><div class="sp-dt">Apr 22–27 · 6 days</div></div>
+      <div class="sp-g">Goal: repo set up, pipeline runs end-to-end (ugly but working), synthetic data ready, Groq API integrated.</div>
+      <div class="sp-pr"><span id="w1-pct">0%</span><div class="sp-bar"><div class="sp-barf" id="w1-bar"></div></div></div>
+    </div>
+    <div class="tc" id="cat-w1a">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--text3)"></div><div class="tc-n">Setup &amp; Architecture — whole team, Apr 22</div><div class="tc-c" id="c-w1a">0/5</div></div>
+      <div class="tc-body" id="body-w1a">
+        <div id="t-w1a1" class="task-wrap"></div>
+        <div id="t-w1a2" class="task-wrap"></div>
+        <div id="t-w1a3" class="task-wrap"></div>
+        <div id="t-w1a4" class="task-wrap"></div>
+        <div id="t-w1a5" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w1a"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w1b">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--blu)"></div><div class="tc-n">Data pipeline</div><div class="tc-c" id="c-w1b">0/6</div></div>
+      <div class="tc-body" id="body-w1b">
+        <div id="t-w1b1" class="task-wrap"></div>
+        <div id="t-w1b2" class="task-wrap"></div>
+        <div id="t-w1b3" class="task-wrap"></div>
+        <div id="t-w1b4" class="task-wrap"></div>
+        <div id="t-w1b5" class="task-wrap"></div>
+        <div id="t-w1b6" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w1b"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w1c">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--amb)"></div><div class="tc-n">LLM integration</div><div class="tc-c" id="c-w1c">0/4</div></div>
+      <div class="tc-body" id="body-w1c">
+        <div id="t-w1c1" class="task-wrap"></div>
+        <div id="t-w1c2" class="task-wrap"></div>
+        <div id="t-w1c3" class="task-wrap"></div>
+        <div id="t-w1c4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w1c"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w1d">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--acc)"></div><div class="tc-n">UI skeleton</div><div class="tc-c" id="c-w1d">0/4</div></div>
+      <div class="tc-body" id="body-w1d">
+        <div id="t-w1d1" class="task-wrap"></div>
+        <div id="t-w1d2" class="task-wrap"></div>
+        <div id="t-w1d3" class="task-wrap"></div>
+        <div id="t-w1d4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w1d"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w1e">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--cor)"></div><div class="tc-n">Data &amp; demo content (PM-led)</div><div class="tc-c" id="c-w1e">0/7</div></div>
+      <div class="tc-body" id="body-w1e">
+        <div id="t-w1e1" class="task-wrap"></div>
+        <div id="t-w1e2" class="task-wrap"></div>
+        <div id="t-w1e3" class="task-wrap"></div>
+        <div id="t-w1e4" class="task-wrap"></div>
+        <div id="t-w1e5" class="task-wrap"></div>
+        <div id="t-w1e6" class="task-wrap"></div>
+        <div id="t-w1e7" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w1e"></div>
+      </div>
+    </div>
+    <div class="buf">⏳ Buffer: Apr 27 is a flex day. Use it to complete anything that slipped. Do not start Week 2 features early — use the time to make Week 1 solid.</div>
+  </div>
+ 
+  <!-- WEEK 2 -->
+  <div class="sp-pnl" id="sp-w2">
+    <div class="sp-hd">
+      <div><div class="sp-t">Week 2 — Core Product</div><div class="sp-dt">Apr 28–May 4 · 7 days</div></div>
+      <div class="sp-g">Goal: OST tree renders and is clickable, traceability works, priority scoring visible, session state persists.</div>
+      <div class="sp-pr"><span id="w2-pct">0%</span><div class="sp-bar"><div class="sp-barf" id="w2-bar"></div></div></div>
+    </div>
+    <div class="tc" id="cat-w2a">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--acc)"></div><div class="tc-n">OST visualisation</div><div class="tc-c" id="c-w2a">0/6</div></div>
+      <div class="tc-body" id="body-w2a">
+        <div id="t-w2a1" class="task-wrap"></div><div id="t-w2a2" class="task-wrap"></div>
+        <div id="t-w2a3" class="task-wrap"></div><div id="t-w2a4" class="task-wrap"></div>
+        <div id="t-w2a5" class="task-wrap"></div><div id="t-w2a6" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w2a"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w2b">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--blu)"></div><div class="tc-n">Traceability</div><div class="tc-c" id="c-w2b">0/4</div></div>
+      <div class="tc-body" id="body-w2b">
+        <div id="t-w2b1" class="task-wrap"></div><div id="t-w2b2" class="task-wrap"></div>
+        <div id="t-w2b3" class="task-wrap"></div><div id="t-w2b4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w2b"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w2c">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--grn)"></div><div class="tc-n">Scoring &amp; personas</div><div class="tc-c" id="c-w2c">0/5</div></div>
+      <div class="tc-body" id="body-w2c">
+        <div id="t-w2c1" class="task-wrap"></div><div id="t-w2c2" class="task-wrap"></div>
+        <div id="t-w2c3" class="task-wrap"></div><div id="t-w2c4" class="task-wrap"></div>
+        <div id="t-w2c5" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w2c"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w2d">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--cor)"></div><div class="tc-n">Integration testing (PM-led)</div><div class="tc-c" id="c-w2d">0/4</div></div>
+      <div class="tc-body" id="body-w2d">
+        <div id="t-w2d1" class="task-wrap"></div><div id="t-w2d2" class="task-wrap"></div>
+        <div id="t-w2d3" class="task-wrap"></div><div id="t-w2d4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w2d"></div>
+      </div>
+    </div>
+    <div class="buf">⏳ Buffer: May 4 (Sunday) is a flex day. Priority = fix any P1 bugs from integration testing before entering Week 3.</div>
+  </div>
+ 
+  <!-- WEEK 3 -->
+  <div class="sp-pnl" id="sp-w3">
+    <div class="sp-hd">
+      <div><div class="sp-t">Week 3 — Polish + Mid-Demo</div><div class="sp-dt">May 5–11 · 7 days</div></div>
+      <div class="sp-g">Goal: additional views working, UI polished, deployed on Streamlit Cloud, real data tested, mid-project presentation delivered.</div>
+      <div class="sp-pr"><span id="w3-pct">0%</span><div class="sp-bar"><div class="sp-barf" id="w3-bar"></div></div></div>
+    </div>
+    <div class="tc" id="cat-w3a">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--acc)"></div><div class="tc-n">Additional views</div><div class="tc-c" id="c-w3a">0/4</div></div>
+      <div class="tc-body" id="body-w3a">
+        <div id="t-w3a1" class="task-wrap"></div><div id="t-w3a2" class="task-wrap"></div>
+        <div id="t-w3a3" class="task-wrap"></div><div id="t-w3a4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w3a"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w3b">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--acc)"></div><div class="tc-n">UI polish</div><div class="tc-c" id="c-w3b">0/4</div></div>
+      <div class="tc-body" id="body-w3b">
+        <div id="t-w3b1" class="task-wrap"></div><div id="t-w3b2" class="task-wrap"></div>
+        <div id="t-w3b3" class="task-wrap"></div><div id="t-w3b4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w3b"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w3c">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--grn)"></div><div class="tc-n">Real data testing</div><div class="tc-c" id="c-w3c">0/4</div></div>
+      <div class="tc-body" id="body-w3c">
+        <div id="t-w3c1" class="task-wrap"></div><div id="t-w3c2" class="task-wrap"></div>
+        <div id="t-w3c3" class="task-wrap"></div><div id="t-w3c4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w3c"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w3d">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--grn)"></div><div class="tc-n">Deployment</div><div class="tc-c" id="c-w3d">0/3</div></div>
+      <div class="tc-body" id="body-w3d">
+        <div id="t-w3d1" class="task-wrap"></div><div id="t-w3d2" class="task-wrap"></div>
+        <div id="t-w3d3" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w3d"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w3e">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--cor)"></div><div class="tc-n">Mid-project presentation (PM-led)</div><div class="tc-c" id="c-w3e">0/3</div></div>
+      <div class="tc-body" id="body-w3e">
+        <div id="t-w3e1" class="task-wrap"></div><div id="t-w3e2" class="task-wrap"></div>
+        <div id="t-w3e3" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w3e"></div>
+      </div>
+    </div>
+    <div class="buf">⏳ Buffer: May 11 (Sun) is reserved. If mid-project presentation feedback requires changes, this is your first response day. Protect it.</div>
+  </div>
+ 
+  <!-- WEEK 4 -->
+  <div class="sp-pnl" id="sp-w4">
+    <div class="sp-hd">
+      <div><div class="sp-t">Week 4 — Ship</div><div class="sp-dt">May 12–21 · 10 days</div></div>
+      <div class="sp-g">Goal: feature freeze May 12, demo stable and rehearsed, presentation deck complete, live on May 21.</div>
+      <div class="sp-pr"><span id="w4-pct">0%</span><div class="sp-bar"><div class="sp-barf" id="w4-bar"></div></div></div>
+    </div>
+    <div class="tc" id="cat-w4a">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--text3)"></div><div class="tc-n">Feature freeze &amp; stabilisation (May 12–15)</div><div class="tc-c" id="c-w4a">0/4</div></div>
+      <div class="tc-body" id="body-w4a">
+        <div id="t-w4a1" class="task-wrap"></div><div id="t-w4a2" class="task-wrap"></div>
+        <div id="t-w4a3" class="task-wrap"></div><div id="t-w4a4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w4a"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w4b">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--grn)"></div><div class="tc-n">Final demo data (May 12–16)</div><div class="tc-c" id="c-w4b">0/3</div></div>
+      <div class="tc-body" id="body-w4b">
+        <div id="t-w4b1" class="task-wrap"></div><div id="t-w4b2" class="task-wrap"></div>
+        <div id="t-w4b3" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w4b"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w4c">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--cor)"></div><div class="tc-n">Presentation deck (May 14–18)</div><div class="tc-c" id="c-w4c">0/5</div></div>
+      <div class="tc-body" id="body-w4c">
+        <div id="t-w4c1" class="task-wrap"></div><div id="t-w4c2" class="task-wrap"></div>
+        <div id="t-w4c3" class="task-wrap"></div><div id="t-w4c4" class="task-wrap"></div>
+        <div id="t-w4c5" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w4c"></div>
+      </div>
+    </div>
+    <div class="tc" id="cat-w4d">
+      <div class="tc-hd" onclick="toggle(this)"><div class="cdot" style="background:var(--text3)"></div><div class="tc-n">Rehearsal &amp; buffer (May 19–20)</div><div class="tc-c" id="c-w4d">0/4</div></div>
+      <div class="tc-body" id="body-w4d">
+        <div id="t-w4d1" class="task-wrap"></div><div id="t-w4d2" class="task-wrap"></div>
+        <div id="t-w4d3" class="task-wrap"></div><div id="t-w4d4" class="task-wrap"></div>
+        <div class="add-task-row" id="add-w4d"></div>
+      </div>
+    </div>
+    <div class="buf">⏳ May 19–20 are designated buffer/rehearsal days. A confident demo beats a rushed new feature every time.</div>
+  </div>
+</div>
+ 
+<!-- DATA & STACK -->
+<div class="pnl" id="pnl-data">
+  <div class="sec">
+    <div class="sec-t">Public datasets (tech products only — app, SaaS, web)</div>
+    <table class="dt">
+      <tr><th>Dataset</th><th>Type</th><th>Use in product</th><th>Format</th><th>License</th></tr>
+      <tr><td><a href="https://www.kaggle.com/datasets/crawlfeeds/google-play-store-reviews" target="_blank">Google Play Store Reviews</a></td><td><span class="bdg bacc">App reviews</span></td><td>Simulates app store review input. Filter by app category (productivity, finance, social). Good volume and variety.</td><td>CSV</td><td>Open / Kaggle</td></tr>
+      <tr><td><a href="https://github.com/Kimola/nlp-datasets" target="_blank">Kimola NLP Datasets</a></td><td><span class="bdg bblu">App Store + G2</span></td><td>App Store reviews AND G2 B2B SaaS reviews in clean CSV. Best single source for multi-format real data.</td><td>CSV</td><td>Open (research)</td></tr>
+      <tr><td><a href="https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023" target="_blank">Amazon Reviews 2023 — Software</a></td><td><span class="bdg bgrn">Software reviews</span></td><td>Use "Software" and "Apps_for_Android" subcategories. Rich text, diverse products.</td><td>JSON/Parquet</td><td>Research</td></tr>
+      <tr><td><a href="https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter" target="_blank">Twitter Customer Support</a></td><td><span class="bdg bamb">Support tickets</span></td><td>Real customer support conversations with tech companies (Apple, Spotify, Xbox, Uber, Amazon).</td><td>CSV</td><td>Open / Kaggle</td></tr>
+      <tr><td><a href="https://huggingface.co/datasets/Yelp/yelp_review_full" target="_blank">Yelp Review Full</a> <span class="bdg bgry">⚠ limited use</span></td><td><span class="bdg bgry">Service reviews</span></td><td>Use only for SaaS / delivery / tech-adjacent services. Not primary.</td><td>JSON</td><td>Educational</td></tr>
+      <tr><td>Synthetic datasets A &amp; B <span class="bdg bacc">Claude-generated</span></td><td><span class="bdg bcor">Interview transcripts</span></td><td>Simulates user interviews, usability test notes. Generated to be realistic and messy.</td><td>TXT/PDF</td><td>Own content</td></tr>
+    </table>
+  </div>
+  <div class="sec">
+    <div class="sec-t">Tech stack</div>
+    <div class="g3">
+      <div class="stk"><div class="stk-lay">UI &amp; deployment</div><div class="stk-item"><div class="stk-name">Streamlit</div><div class="stk-d">Main app framework. Multi-page, session state, custom components.</div></div><div class="stk-item"><div class="stk-name">Streamlit Community Cloud</div><div class="stk-d">Free deployment. Connect GitHub repo, set secrets, done.</div></div><div class="stk-item"><div class="stk-name">Plotly</div><div class="stk-d">Priority matrix (scatter) + evidence heatmap.</div></div></div>
+      <div class="stk"><div class="stk-lay">LLM</div><div class="stk-item"><div class="stk-name">Groq API</div><div class="stk-d">Free tier. Fast inference — critical for live demos.</div></div><div class="stk-item"><div class="stk-name">llama-3.1-8b-instant</div><div class="stk-d">Default model. Fast, free, good at structured JSON output.</div></div><div class="stk-item"><div class="stk-name">llama-3.3-70b-versatile</div><div class="stk-d">Fallback for higher quality output if 8B struggles.</div></div></div>
+      <div class="stk"><div class="stk-lay">NLP &amp; embeddings</div><div class="stk-item"><div class="stk-name">sentence-transformers</div><div class="stk-d">Local, CPU-only. all-MiniLM-L6-v2 model (~80MB).</div></div><div class="stk-item"><div class="stk-name">VADER (nltk)</div><div class="stk-d">Rule-based sentiment scoring. No API, no cost, instant.</div></div><div class="stk-item"><div class="stk-name">spaCy (optional)</div><div class="stk-d">For better sentence chunking if simple split() isn't enough.</div></div></div>
+      <div class="stk"><div class="stk-lay">Clustering &amp; ML</div><div class="stk-item"><div class="stk-name">scikit-learn</div><div class="stk-d">KMeans (primary), DBSCAN (fallback), silhouette score for k selection.</div></div><div class="stk-item"><div class="stk-name">PCA</div><div class="stk-d">Dimensionality reduction for 2D cluster visualisation.</div></div><div class="stk-item"><div class="stk-name">NumPy / Pandas</div><div class="stk-d">Core data manipulation throughout the pipeline.</div></div></div>
+      <div class="stk"><div class="stk-lay">File parsing</div><div class="stk-item"><div class="stk-name">pypdf</div><div class="stk-d">PDF text extraction.</div></div><div class="stk-item"><div class="stk-name">python-docx</div><div class="stk-d">DOCX extraction.</div></div><div class="stk-item"><div class="stk-name">pandas</div><div class="stk-d">CSV/TSV reading with flexible column selection.</div></div></div>
+      <div class="stk"><div class="stk-lay">State &amp; version control</div><div class="stk-item"><div class="stk-name">st.session_state</div><div class="stk-d">Persist pipeline output between Streamlit reruns.</div></div><div class="stk-item"><div class="stk-name">JSON files</div><div class="stk-d">OST export format. Lightweight, no DB needed for MVP.</div></div><div class="stk-item"><div class="stk-name">Git + GitHub</div><div class="stk-d">Feature branches, PR reviews, GitHub Issues for bug tracking.</div></div></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- PRODUCT SPECS -->
+<div class="pnl" id="pnl-specs">
+  <div class="alert a-grn"><span>🎯</span><div><strong>Product in one sentence:</strong> Discovery Lens is a generalist tool that helps any PM transform raw qualitative discovery data into a structured, evidence-backed Opportunity-Solution Tree — making prioritisation transparent and decisions traceable.</div></div>
+  <div class="sec">
+    <div class="g2">
+      <div>
+        <div class="sec-t">Core user flow (MVP)</div>
+        <div class="flow">
+          <div class="fs"><div class="fn">1</div><div><div class="ft">Set product goal</div><div class="fsub">PM enters product name + goal statement. Threads through all LLM prompts.</div></div></div>
+          <div class="fs"><div class="fn">2</div><div><div class="ft">Upload discovery files</div><div class="fsub">Multi-file upload: PDF, TXT, CSV, DOCX. Each file tagged with source type.</div></div></div>
+          <div class="fs"><div class="fn">3</div><div><div class="ft">Automatic extraction &amp; chunking</div><div class="fsub">System extracts text, splits into 2–4 sentence chunks, stores source metadata.</div></div></div>
+          <div class="fs"><div class="fn">4</div><div><div class="ft">Embed + cluster</div><div class="fsub">sentence-transformers encode chunks → K-means clusters thematically similar content.</div></div></div>
+          <div class="fs"><div class="fn">5</div><div><div class="ft">LLM frames opportunities</div><div class="fsub">Groq/Llama returns opportunity in JTBD format + solutions + risky assumptions.</div></div></div>
+          <div class="fs"><div class="fn">6</div><div><div class="ft">OST renders</div><div class="fsub">Interactive tree: Goal → Opportunities → Solutions → Assumptions. PM can edit.</div></div></div>
+          <div class="fs"><div class="fn">7</div><div><div class="ft">Traceability on demand</div><div class="fsub">Click any opportunity → see the top source quotes that generated it.</div></div></div>
+          <div class="fs"><div class="fn">8</div><div><div class="ft">Export &amp; decide</div><div class="fsub">PM views priority matrix + evidence heatmap, downloads OST as JSON.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-t">Feature list</div>
+        <div class="card" style="padding:12px 16px">
+          <div class="fi"><span class="fmvp">MVP</span>Goal input field threading into all LLM prompts</div>
+          <div class="fi"><span class="fmvp">MVP</span>Multi-file upload: PDF, TXT, CSV, DOCX with source type tagging</div>
+          <div class="fi"><span class="fmvp">MVP</span>Text extraction, chunking, sentence embeddings</div>
+          <div class="fi"><span class="fmvp">MVP</span>K-means clustering with automatic k selection</div>
+          <div class="fi"><span class="fmvp">MVP</span>LLM opportunity framing in JTBD language (JSON schema output)</div>
+          <div class="fi"><span class="fmvp">MVP</span>Interactive OST tree (Goal → Opps → Solutions → Assumptions)</div>
+          <div class="fi"><span class="fmvp">MVP</span>Traceability: node → source quotes panel</div>
+          <div class="fi"><span class="fmvp">MVP</span>Priority scoring per opportunity</div>
+          <div class="fi"><span class="fmvp">MVP</span>Priority matrix (2×2 Plotly scatter)</div>
+          <div class="fi"><span class="fmvp">MVP</span>Evidence heatmap (opportunities × source types)</div>
+          <div class="fi"><span class="fmvp">MVP</span>Assumption risk register with LLM-suggested tests</div>
+          <div class="fi"><span class="fmvp">MVP</span>JSON export of full OST + traceability</div>
+          <div class="fi"><span class="fstr">Stretch</span>PM manual edit / add / remove OST nodes</div>
+          <div class="fi"><span class="fstr">Stretch</span>A/B test CSV input → integrated into OST context</div>
+          <div class="fi"><span class="fout">Roadmap</span>Jira / Intercom / App Store API live integrations</div>
+          <div class="fi"><span class="fout">Roadmap</span>Multi-user / auth / project history</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="g2">
+      <div>
+        <div class="sec-t">Repo structure (set up on day 1)</div>
+        <div class="repo">
+<span class="dir">discovery-lens/</span>
+├── README.md              <span class="cmt"># setup, how to run, team</span>
+├── requirements.txt       <span class="cmt"># all pip dependencies</span>
+├── .env.example           <span class="cmt"># GROQ_API_KEY=your_key_here</span>
+├── app.py                 <span class="cmt"># Streamlit entry point</span>
+├── <span class="dir">pages/</span>
+│   ├── 1_goal.py
+│   ├── 2_upload.py
+│   └── 3_results.py
+├── <span class="dir">pipeline/</span>
+│   ├── extractor.py
+│   ├── chunker.py
+│   ├── embedder.py
+│   ├── clusterer.py
+│   └── llm.py
+├── <span class="dir">components/</span>
+│   ├── ost_tree.py
+│   ├── priority_matrix.py
+│   └── heatmap.py
+├── <span class="dir">data/</span>
+│   ├── <span class="dir">synthetic/</span>
+│   └── <span class="dir">public/</span>
+└── <span class="dir">docs/</span>
+    └── data_contracts.md
+        </div>
+      </div>
+      <div>
+        <div class="sec-t">Data contracts between pipeline modules</div>
+        <div class="ct"><div class="ct-m">extractor.py</div><div class="ct-io"><strong>Input:</strong> uploaded file (Streamlit UploadedFile), source_type (str)<br><strong>Output:</strong> raw_text (str)</div></div>
+        <div class="ct"><div class="ct-m">chunker.py</div><div class="ct-io"><strong>Input:</strong> raw_text (str), filename (str), source_type (str)<br><strong>Output:</strong> List of dicts: {chunk_id, text, filename, source_type}</div></div>
+        <div class="ct"><div class="ct-m">embedder.py</div><div class="ct-io"><strong>Input:</strong> chunks (List[dict])<br><strong>Output:</strong> embeddings (np.ndarray shape [n_chunks, 384])</div></div>
+        <div class="ct"><div class="ct-m">clusterer.py</div><div class="ct-io"><strong>Input:</strong> chunks (List[dict]), embeddings (np.ndarray)<br><strong>Output:</strong> clusters (List[dict]): {cluster_id, representative_chunks[3], all_chunk_ids}</div></div>
+        <div class="ct"><div class="ct-m">llm.py</div><div class="ct-io"><strong>Input:</strong> clusters (List[dict]), goal (str)<br><strong>Output:</strong> ost_json: {goal, opportunities[{jtbd, solutions[{label, assumptions}], priority_score}]}</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- RESOURCES & RISKS -->
+<div class="pnl" id="pnl-resources">
+  <div class="sec">
+    <div class="sec-t" style="display:flex;align-items:center;justify-content:space-between">
+      <span>Team working agreements</span>
+      <span style="font-size:10px;color:var(--acc);cursor:pointer;font-weight:600" onclick="openAddAgreement()">+ Add agreement</span>
+    </div>
+    <div class="g2" id="agreements-grid">
+      <div class="tip tip-editable" id="agr-0">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-0')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-0')">Edit</button>
+        <div class="tip-t" id="agr-0-title">Daily standup format (15 min max)</div>
+        <div class="tip-b tip-content" id="agr-0-body">Each person answers 3 questions:<br><ul><li>What did I complete since yesterday?</li><li>What will I work on today?</li><li>Any blocker that needs the PM's decision?</li></ul><br>PM closes with: any priority changes, scope decisions, help needed. Run async in Slack if not meeting in person.</div>
+      </div>
+      <div class="tip tip-editable" id="agr-1">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-1')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-1')">Edit</button>
+        <div class="tip-t" id="agr-1-title">Definition of done (per task)</div>
+        <div class="tip-b tip-content" id="agr-1-body">A task is done when:<ul><li>Code is merged to main (via PR, not direct push)</li><li>It doesn't break any existing feature</li><li>PM or one other teammate has seen it work</li><li>The checkbox in this plan is ticked</li></ul><br>Partial work = not done. If a task is too big, split it in the daily.</div>
+      </div>
+      <div class="tip tip-editable" id="agr-2">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-2')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-2')">Edit</button>
+        <div class="tip-t" id="agr-2-title">Git workflow</div>
+        <div class="tip-b tip-content" id="agr-2-body"><ul><li>One branch per feature: <code>feature/ost-tree</code>, <code>fix/embedding-crash</code></li><li>Never push directly to main</li><li>Small PRs (1 feature = 1 PR). Easier to review.</li><li>Tag the PM in any PR that changes pipeline output format</li><li>Use GitHub Issues for bugs: P1 blocker / P2 important / P3 nice-to-have</li></ul></div>
+      </div>
+      <div class="tip tip-editable" id="agr-3">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-3')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-3')">Edit</button>
+        <div class="tip-t" id="agr-3-title">PM scope decisions (sign-off required)</div>
+        <div class="tip-b tip-content" id="agr-3-body">The PM must approve before the team builds:<ul><li>Any change to what the LLM outputs</li><li>Any new page or view added to the app</li><li>Any change to the OST data structure</li><li>Any new dataset or data source added</li></ul><br>For anything else: build it, show it in the daily. Speed over process on small things.</div>
+      </div>
+      <div class="tip tip-editable" id="agr-4">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-4')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-4')">Edit</button>
+        <div class="tip-t" id="agr-4-title">Communication norms</div>
+        <div class="tip-b tip-content" id="agr-4-body">How we communicate as a team:<ul><li>Primary channel: Slack (#discovery-lens-team)</li><li>Reply within 4 hours during working hours</li><li>Use threads for technical discussions — keep main channel clean</li><li>If blocked for &gt;2h, ping the team immediately — don't wait for standup</li><li>Decisions made in standup must be written down in #decisions within 1h</li></ul></div>
+      </div>
+      <div class="tip tip-editable" id="agr-5">
+        <button class="tip-delete-btn" onclick="deleteAgreement('agr-5')">Delete</button>
+        <button class="tip-edit-btn" onclick="editAgreement('agr-5')">Edit</button>
+        <div class="tip-t" id="agr-5-title">💡 Tips for working with the LLM</div>
+        <div class="tip-b tip-content" id="agr-5-body">Keep prompts effective and deterministic:<ul><li>Always use temperature=0 for JSON output calls — reduces hallucinations</li><li>Few-shot examples in the system prompt are non-negotiable for JTBD framing</li><li>Log every prompt version in <code>prompts/</code> with a date prefix</li><li>If the 8B model fails 2× in a row, fall back to 70B — don't fight the model</li><li>Never parse JSON outside a try/except — Groq output can be subtly malformed</li></ul></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="sec">
+    <div class="sec-t">Key decisions to make on day 1 (architecture session)</div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px">Technical decisions</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8">
+            □ How is the goal stored and passed between pages? (st.session_state key name)<br>
+            □ What is the exact chunk size? (2 sentences? 4 sentences? token limit?)<br>
+            □ What is the LLM JSON schema? (agree before anyone codes the parser)<br>
+            □ How are clusters → OST nodes linked? (dict? dataframe? define the key)<br>
+            □ Who owns the system prompt? (one person edits it — who?)
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px">Team decisions</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8">
+            □ Who is responsible for each pipeline module? (one owner per file)<br>
+            □ Where do we meet / what channel for async questions?<br>
+            □ When is the daily? (time + format: video or Slack?)<br>
+            □ What is the mid-project presentation date?<br>
+            □ Who manages GitHub Issues / Kanban board?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="sec">
+    <div class="sec-t">Risk register</div>
+    <table class="rt">
+      <tr><th>Risk</th><th>Level</th><th>Mitigation</th></tr>
+      <tr><td><strong>Scope creep:</strong> team adds features not in MVP without PM sign-off</td><td><span class="bdg bcor">High</span></td><td>PM has final say on all new features. Feature freeze May 12 is non-negotiable.</td></tr>
+      <tr><td><strong>LLM output inconsistency:</strong> Groq/Llama produces malformed or non-JTBD output</td><td><span class="bdg bamb">Medium</span></td><td>Fix JSON output schema in system prompt + few-shot examples. try/except around JSON parsing. llama-3.3-70b as fallback.</td></tr>
+      <tr><td><strong>OST tree visualisation complexity:</strong> library bugs/layout issues</td><td><span class="bdg bamb">Medium</span></td><td>Default to custom HTML/JS tree. Only use a library if custom component fails after 1 day.</td></tr>
+      <tr><td><strong>No public interview transcript data</strong></td><td><span class="bdg bamb">Medium</span></td><td>PM generates realistic synthetic transcripts with Claude during Week 1. Add deliberate messiness to stress-test the pipeline.</td></tr>
+      <tr><td><strong>Deployment issues on Streamlit Cloud</strong></td><td><span class="bdg bgrn">Low</span></td><td>Deploy early (Week 3 start). Test on cloud with real data. Common issues: missing requirements, env vars not set.</td></tr>
+      <tr><td><strong>Team integration failures:</strong> modules built in parallel don't connect</td><td><span class="bdg bcor">High</span></td><td>Agree data contracts on Day 1. PM reviews contracts before coding starts. Integration test at end of Week 1 with stub data.</td></tr>
+    </table>
+  </div>
+ 
+  <div class="sec">
+    <div class="sec-t">Useful links</div>
+    <div class="g3">
+      <div class="card" style="padding:12px 16px"><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">PM frameworks (read before coding)</div><div style="font-size:12px;color:var(--text2);line-height:1.8"><a href="https://www.producttalk.org/2021/08/product-discovery/" target="_blank">Teresa Torres — Continuous Discovery Habits</a><br><a href="https://www.intercom.com/resources/books/intercom-jobs-to-be-done" target="_blank">JTBD — Intercom guide</a><br><a href="https://www.producttalk.org/opportunity-solution-tree/" target="_blank">Opportunity-Solution Tree explainer</a></div></div>
+      <div class="card" style="padding:12px 16px"><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">Technical docs</div><div style="font-size:12px;color:var(--text2);line-height:1.8"><a href="https://console.groq.com" target="_blank">Groq Console (get API key)</a><br><a href="https://docs.streamlit.io" target="_blank">Streamlit docs</a><br><a href="https://www.sbert.net" target="_blank">sentence-transformers docs</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank">scikit-learn clustering</a></div></div>
+      <div class="card" style="padding:12px 16px"><div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">Datasets (direct links)</div><div style="font-size:12px;color:var(--text2);line-height:1.8"><a href="https://www.kaggle.com/datasets/crawlfeeds/google-play-store-reviews" target="_blank">Google Play Store Reviews</a><br><a href="https://github.com/Kimola/nlp-datasets" target="_blank">Kimola NLP Datasets</a><br><a href="https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter" target="_blank">Twitter Customer Support</a><br><a href="https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023" target="_blank">Amazon Reviews 2023</a></div></div>
+    </div>
+  </div>
+</div>
+ 
+</div><!-- end .main -->
+ 
+<!-- ASSIGN DROPDOWN (shared, positioned via JS) -->
+<div id="assign-dropdown" style="display:none;position:fixed;z-index:200">
+  <div class="assign-dropdown" id="assign-dropdown-inner"></div>
+</div>
+ 
+<!-- ADD AGREEMENT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-t" id="modal-title">Add team agreement</div>
+    <div class="modal-sub" id="modal-sub">Add a new card to the Team Working Agreements section.</div>
+    <div class="modal-label">Title</div>
+    <input class="modal-input" id="modal-input-title" placeholder="e.g. Code review norms">
+    <div class="modal-label">Content</div>
+    <textarea class="modal-textarea" id="modal-input-body" placeholder="Describe the agreement..."></textarea>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeModalBtn()">Cancel</button>
+      <button class="modal-save" id="modal-save-btn" onclick="saveAgreement()">Add agreement</button>
+    </div>
+  </div>
+</div>
+ 
+<script>
+// ═══════════════════════════════════
+// TEAM MEMBERS (UNCHANGED)
+// ═══════════════════════════════════
+var MEMBERS = [
+  {id:'lucas', name:'Lucas', color:'#7F77DD'},
+  {id:'mengda', name:'Mengda', color:'#1D9E75'},
+  {id:'asma',  name:'Asma',  color:'#BA7517'},
+  {id:'dmitrii',name:'Dmitrii',color:'#D85A30'},
+  {id:'unassigned', name:'Unassigned', color:'#aaa'}
+];
+
+// ═══════════════════════════════════
+// JSONBIN CONFIG
+// ═══════════════════════════════════
+var JSONBIN_ID  = '69e9dab2aaba8821972ba34e';
+var JSONBIN_KEY = '$2a$10$YT/LyguhdQ68uv3qZYDVYOYMBl95PqMfTgIZ.FmXVQEA/wZDwt1GC';
+
+// ═══════════════════════════════════
+// SYNC CONFIG
+// ═══════════════════════════════════
+var AUTO_SYNC_INTERVAL = 5000;
+var isSyncing = false;
+var lastRemoteHash = null;
+
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
+var state = {};
+
+function save(k, v) { try { localStorage.setItem('dl2_' + k, JSON.stringify(v)); } catch(e){} }
+function load(k, def) { try { var v = localStorage.getItem('dl2_' + k); return v !== null ? JSON.parse(v) : def; } catch(e){ return def; } }
+
+function getState(id) {
+  if (!state[id]) state[id] = load('task_' + id, {checked:false, wip:false, assignee:'unassigned', comments:[]});
+  return state[id];
+}
+function saveState(id) { save('task_' + id, state[id]); }
+
+// ═══════════════════════════════════
+// HASH
+// ═══════════════════════════════════
+function hash(obj){ return JSON.stringify(obj); }
+
+// ═══════════════════════════════════
+// REMOTE LOAD
+// ═══════════════════════════════════
+async function loadRemote() {
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_ID}/latest`, {
+      headers: { 'X-Master-Key': JSONBIN_KEY }
+    });
+    const data = await res.json();
+
+    if (data && data.record) {
+      const newHash = hash(data.record);
+      if (newHash !== lastRemoteHash) {
+        state = data.record;
+        lastRemoteHash = newHash;
+        renderAll();
+      }
+    }
+  } catch (e) {
+    console.error('Load failed', e);
+  }
+}
+
+// ═══════════════════════════════════
+// REMOTE SAVE
+// ═══════════════════════════════════
+async function saveRemote() {
+  if (isSyncing) return;
+  isSyncing = true;
+
+  try {
+    lastRemoteHash = hash(state);
+
+    await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_ID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': JSONBIN_KEY
+      },
+      body: JSON.stringify({ record: state })
+    });
+
+  } catch (e) {
+    console.error('Save failed', e);
+  }
+
+  isSyncing = false;
+}
+
+// ═══════════════════════════════════
+// AUTO SYNC LOOP
+// ═══════════════════════════════════
+function startAutoSync() {
+  setInterval(loadRemote, AUTO_SYNC_INTERVAL);
+}
+
+// ═══════════════════════════════════
+// PATCH YOUR EXISTING FUNCTIONS
+// ═══════════════════════════════════
+
+var originalCheckTask = checkTask;
+checkTask = function(id, cb){
+  originalCheckTask(id, cb);
+  saveRemote();
+};
+
+var originalToggleWIP = toggleWIP;
+toggleWIP = function(id){
+  originalToggleWIP(id);
+  saveRemote();
+};
+
+var originalAssignTask = assignTask;
+assignTask = function(id, memberId){
+  originalAssignTask(id, memberId);
+  saveRemote();
+};
+
+var originalAddComment = addComment;
+addComment = function(id){
+  originalAddComment(id);
+  saveRemote();
+};
+
+var originalSaveNewTask = saveNewTask;
+saveNewTask = function(catId){
+  originalSaveNewTask(catId);
+  saveRemote();
+};
+
+var originalDeleteTask = deleteTask;
+deleteTask = function(id){
+  originalDeleteTask(id);
+  saveRemote();
+};
+
+// ═══════════════════════════════════
+// RENDER WRAPPER
+// ═══════════════════════════════════
+function renderAll(){
+  Object.keys(TASKS).forEach(id=>{
+    var def = TASKS[id];
+    renderTask(id, def.text, def.tag);
+  });
+  updateAll();
+}
+
+// ═══════════════════════════════════
+// INIT (ASYNC)
+// ═══════════════════════════════════
+async function startApp(){
+  await loadRemote();
+  initAll();
+  startAutoSync();
+}
+
+startApp();
+</script>
+</body>
+</html>
