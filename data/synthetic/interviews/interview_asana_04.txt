@@ -1,0 +1,128 @@
+DISCOVERY LENS — SYNTHETIC USER INTERVIEW
+Project: Asana Onboarding
+Interview ID: INT-ASANA-04
+Participant: Ben C., Engineering Lead, Series B startup (~35 engineers, 80 total employees)
+Interviewer: Priya S., UX Researcher
+Date: 2026-03-24
+Duration: 52 minutes
+Context: Ben's team adopted Asana ~5 weeks ago under pressure from CEO; engineering was previously on GitHub Issues + Notion; first cross-functional project completed in week 5
+
+---
+
+[00:01:15]
+
+PRIYA: Ben, appreciate you making time. Can you start with a bit of context about your team?
+
+BEN: Yeah, sure. So I'm the engineering lead at a startup, we're about 35 engineers split across three product teams. For the past two years engineering has lived in GitHub Issues and Notion. GitHub for sprint-level work, Notion for docs and planning. That worked fine for us but it was basically invisible to the rest of the company. Product, sales, marketing — they had no idea what engineering was working on or when things would ship. We kept having the same conversation in all-hands: "when is X going to be ready?" And I'd have to translate from our GitHub board into something a non-engineer could understand.
+
+So our CEO basically said — everyone is going to use Asana, I want one source of truth. And I was... I was not enthusiastic. I want to be honest about that.
+
+PRIYA: Why not?
+
+BEN: A few reasons. One, I know my engineers. Most of them are not going to willingly add a project management GUI to their workflow if they can avoid it. They live in the terminal, they live in GitHub. Adding Asana felt like friction, not value. Two, I've used Asana before and my instinct was that it's designed for marketing and ops, not engineering. There's no concept of story points. There's no sprint. The way Asana thinks about work is not the way engineers think about work.
+
+PRIYA: Were your instincts right?
+
+BEN: Partially. It's better than I expected for cross-functional work. It's worse than I expected for pure engineering workflow. I ended up kind of splitting the use case — Asana for cross-functional projects where I need non-technical stakeholders to see status, GitHub Issues for the actual engineering work. Which means I'm running two systems and doing some double-entry, which I hate. But there isn't a better answer yet.
+
+[00:07:45]
+
+PRIYA: How did you get started in Asana? Who set it up?
+
+BEN: Our head of product set up the workspace. She'd used Asana before and was actually excited about it. She built out the first few projects before I was even involved. And then she said "okay, I need the engineering work to be visible in here too" and handed it to me.
+
+So my onboarding experience was different from someone starting from scratch. I came into an existing workspace that someone else had configured, and I had to figure out how to fit engineering into a structure I didn't design. That was disorienting. Like, she'd set up projects in a way that made sense for product management but didn't map well to how engineering tracks work. I'd click around and not know what things were for.
+
+PRIYA: Did you and your head of product align on the structure?
+
+BEN: Eventually, yes, but it took two weeks of back and forth. We had different mental models and neither of us fully understood the other's workflow. The moment things improved was when we sat down together for an hour and I said "let me show you how we track a feature from spec to deploy" and she showed me what she needed to see for planning purposes. Once we had that shared understanding the structure we built actually worked.
+
+[00:13:20]
+
+PRIYA: What was the first project you completed in Asana?
+
+BEN: It was a cross-functional launch project — we were releasing a new integration and it involved engineering, marketing, and customer success. That's the project that took five weeks and was the first thing we actually finished in Asana. Which, five weeks for a launch project, that's not unusual, but I want to be clear — the first three weeks were chaotic.
+
+PRIYA: What happened in those three weeks?
+
+BEN: Week one we were still negotiating the structure, like I said. Week two the engineers weren't in Asana yet — they were still doing everything in GitHub and I was trying to sync manually. That was a disaster. I was updating Asana based on what I saw in GitHub, which meant Asana was always a day or two behind. Marketing would ask me in a meeting "is the OAuth handshake done" and I'd say "yes" but Asana still showed it as in progress and then someone would ping an engineer directly to ask and they'd get annoyed.
+
+Week three I had a frank conversation with my engineers. I said look, I know this isn't ideal, but can you just update Asana when you move something through the GitHub workflow? And a few of them did. And a few didn't. And I think one of them wrote a comment in a GitHub PR that said "updating the asana ticket which I consider busywork" and someone forwarded it to me. Fun times.
+
+[00:20:05]
+
+PRIYA: How did you address the resistance from engineers?
+
+BEN: I stopped trying to make them use Asana for engineering tasks. That was the key insight. I made peace with GitHub Issues being the engineering system and Asana being the cross-functional visibility layer. So in Asana I have high-level milestones and status updates that I maintain, not the engineers. They do their work in GitHub. I synthesize it into Asana once a day.
+
+Is that how Asana is supposed to be used? I have no idea. It's probably not ideal. But it's what works for my team. The engineers aren't angry anymore, the product and marketing people can see status, and I spend about 15 minutes a day doing the sync. That's livable.
+
+PRIYA: Did you look into integrating GitHub with Asana?
+
+BEN: Yes. The integration exists. I spent a while looking at it. The GitHub integration links PRs to Asana tasks, which sounds useful in theory. In practice, my workflow is messy enough that the linkages were hard to maintain. Like, a single Asana task might correspond to three or four GitHub issues depending on how we scope things. The one-to-one mapping assumption breaks down quickly. I think for smaller teams or simpler projects it probably works great.
+
+I ended up not using the GitHub integration, which feels like a missed opportunity. If I had more time I'd figure it out properly. I don't have more time.
+
+[00:27:30]
+
+PRIYA: What features did you find useful, even if you came in skeptical?
+
+BEN: The timeline for launch planning. I was genuinely surprised. I came in assuming it was going to be a fancy Gantt chart that nobody updates, and for the launch project it was actually the central coordination artifact. We'd pull it up in our weekly launch sync, make adjustments in real time, and everyone left knowing what had changed. That was good.
+
+Also custom fields. Once I figured out how to use them — which took a while — I added a "engineering status" field with values like "In Progress," "In Review," "Deployed." That gave non-engineers a signal they understood without me having to explain our deployment pipeline. Small thing, big impact.
+
+PRIYA: What took a while about figuring out custom fields?
+
+BEN: I set them up wrong the first time. I made them project-specific when I should have made them — I think the term is "organization-wide"? And then when I wanted to use the same field in a different project I had to recreate it. I didn't understand the scope of how fields work across projects. Took me a while and a help article to understand the options.
+
+[00:33:15]
+
+PRIYA: Did you use any of the Asana onboarding resources?
+
+BEN: Honestly, no. I'm going to be direct about this. I looked at the onboarding checklist once, saw it was going to take time, and closed it. I learn by doing. I learn by breaking things and figuring out what I broke.
+
+What I did do was look at the API documentation, because I had this idea of automating the daily sync from GitHub to Asana. I got partway through that and then it felt like too much scope creep for what I was supposed to be doing. But the API docs are good. If someone on my team had the bandwidth to build a proper integration, I think it would be great.
+
+PRIYA: That's an interesting instinct — to go to the API first.
+
+BEN: For me it's always — if the UI is confusing, read the API docs. The API usually shows you the underlying data model, which helps me understand how the product actually thinks about things. And understanding how Asana thinks about tasks, projects, workspaces, and portfolios from the API perspective helped me understand the UI better. Which is a weird way to learn a tool.
+
+[00:38:50]
+
+PRIYA: Was there a moment the tool started feeling worth it?
+
+BEN: The first all-hands after the launch shipped. Our CEO put up the Asana timeline on the screen and walked through what shipped and what was coming. And for the first time in two years I wasn't the person manually building a slide for that. The timeline was just... there. Accurate. Up to date. And I remember thinking — okay, that's the value. Not for me. Not for my engineers. For the visibility it creates with the rest of the company.
+
+PRIYA: Had you anticipated that moment?
+
+BEN: I'd hoped for it. I wasn't sure it would happen. I think if someone had told me at the start "here's the specific moment where this is going to feel worth it, and it's this cross-functional visibility thing, not anything engineering-specific" — I might have set it up differently. I wasted a lot of energy trying to make Asana work as an engineering tool and it's not really designed for that. I should have accepted that earlier and focused on the use case it's actually good at.
+
+[00:44:00]
+
+PRIYA: If you could change one thing about those first five weeks, what would it be?
+
+BEN: I would have had that conversation with my head of product in week one instead of week two. The shared understanding thing. When two teams with completely different workflows are going to use the same tool, someone needs to broker a conversation about how that's going to work before anyone sets anything up. Asana doesn't do that for you. It just lets everyone build their own thing and then you discover the conflicts later.
+
+I also — I think I would have been more explicit with my engineers about what I was and wasn't asking them to do. I was vague about it. I said "we're moving to Asana" without saying "but you don't have to change your GitHub workflow." Some of the resistance was because they thought I was asking them to abandon the tools they're comfortable with. If I'd been clearer about the separation earlier, there probably would have been less friction.
+
+PRIYA: One last thing — what do you think Asana could have done to make that clearer?
+
+BEN: During setup, when you're inviting teammates, it could ask something like: "How do your teammates prefer to work? Do they use other tools for task management?" And then say something like — here's how to use Asana alongside [GitHub / Jira / whatever] without creating conflict. Because the failure mode I see is: one team adopts Asana fully, another team is partially in it, and the seams between those groups are painful. I would have benefited from some kind of guidance on the "hybrid adoption" case because that's pretty much how it always plays out in engineering.
+
+PRIYA: That's a strong note to end on. Thank you, Ben.
+
+BEN: Good luck with the research. I'm curious what you find.
+
+---
+
+[END OF TRANSCRIPT]
+
+RESEARCHER NOTES (Priya S.):
+- "Came into existing workspace" as onboarding context — secondary admin/joiner experience is distinct from founder/creator experience; no alignment on structure led to 2-week delay
+- GitHub-to-Asana manual sync as daily maintenance tax (~15 min/day) — accepted cost, but signals unresolved integration gap
+- Engineers as reluctant secondary adopters: GitHub Issues as primary system of record, Asana as visibility layer — "hybrid adoption" pattern probably common across technical roles
+- Feature resistance was really role confusion: engineers thought Asana was replacing GitHub, not complementing it; clarity of scope would have reduced friction
+- All-hands timeline moment = the "aha" — value realized not by the tool's primary user (Ben) but by stakeholders upstream; suggests onboarding should frame the cross-functional value story earlier
+- Contradiction: dismisses onboarding checklist as time-consuming, then spends comparable time on API docs — engineers may need a "technical quickstart" path distinct from the standard UI walkthrough
+- Custom field scope confusion (project-level vs org-level) — mental model mismatch; help article was necessary to resolve
+- Strong JTBD signal: "I need engineering work to be visible and legible to non-technical stakeholders without me having to translate it every week"

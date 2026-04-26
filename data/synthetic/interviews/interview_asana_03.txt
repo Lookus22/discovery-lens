@@ -1,0 +1,140 @@
+DISCOVERY LENS — SYNTHETIC USER INTERVIEW
+Project: Asana Onboarding
+Interview ID: INT-ASANA-03
+Participant: Nadia R., Freelance Project Manager (independent consultant, 4 active clients)
+Interviewer: Priya S., UX Researcher
+Date: 2026-03-21
+Duration: 46 minutes
+Context: Nadia uses Asana across multiple client engagements; started using it independently ~8 weeks ago; managing 2 active projects in Asana currently
+
+---
+
+[00:01:08]
+
+PRIYA: Nadia, thanks for joining. Can you start by describing how you use Asana in your work?
+
+NADIA: Sure. So my situation is a little different from most people probably. I'm a freelance PM — I manage projects for multiple clients simultaneously. Right now I have four active clients. Two of them I'm running in Asana, one is in Monday.com because the client already had it, and one is just email and spreadsheets because the client refused to use any tool. So I'm kind of living in three systems at once, which is its own nightmare.
+
+PRIYA: And when did you bring Asana in?
+
+NADIA: I started using it for my own work about eight weeks ago. Before that I was using Notion for everything — personal notes, client tracking, project plans. Notion is great for documentation but it's terrible for task management. Like you can make it work but it's not really designed for it and I was spending too much time maintaining my own system. I needed something purpose-built.
+
+PRIYA: What made you choose Asana over something else?
+
+NADIA: It was basically Asana versus ClickUp. ClickUp has more features but I felt like I'd spend three months configuring it. Asana seemed more opinionated and faster to get into. I still question that decision sometimes, mostly when I hit a wall with Asana's flexibility, but overall I think it was the right call.
+
+[00:05:30]
+
+PRIYA: Walk me through setting up your first client project.
+
+NADIA: So the first client project I moved into Asana was a brand redesign for a fintech startup. It's a 12-week engagement, lots of moving parts — agency coordination, internal stakeholder approvals, a developer handoff at the end. I set it up over a couple of days. I was pretty deliberate about the structure because I knew the client was going to see it and I didn't want it to look chaotic.
+
+The challenge was figuring out what to show the client versus what to keep internal. Like, there are tasks that are just for me — "prep agenda for client call," "review deliverable before sharing" — and I didn't want those visible to the client. But I also wanted the client to be able to see the overall project status. And I couldn't figure out a clean way to separate those views.
+
+PRIYA: What did you end up doing?
+
+NADIA: I made a separate "client-facing" section with only the tasks relevant to them, and a hidden section — well, not hidden, just at the bottom — for my internal tasks. And I told the client "just look at the top section." Which works but it's fragile. If they scroll down they'll see the internal stuff. And some of my internal tasks have notes like "client seems confused about X, prep re-explanation" which — yeah, I'd rather they didn't see that.
+
+PRIYA: Is there a proper way to do that in Asana that you found later?
+
+NADIA: I think there might be with teams and permission settings but I haven't fully figured it out. I know there's something about portfolios and I've read about private tasks but I'm not 100% sure how to string it together into what I actually need. This is probably the biggest unsolved problem I have in my Asana setup.
+
+[00:11:22]
+
+PRIYA: What was the first project you completed?
+
+NADIA: A market research synthesis project for a healthcare client. Smaller scope, just me and one other researcher, four-week timeline. That one went cleanly. We used it just to track tasks and milestones, nothing fancy. I completed it in week three, which felt good.
+
+PRIYA: What made that one go smoothly?
+
+NADIA: Small team, clear scope, and the client wasn't in Asana. It was just me and the researcher. We didn't have to manage access or visibility, we just used it like a shared to-do list. The complexity of Asana becomes apparent when you involve clients or stakeholders who don't use project management tools. When it's just practitioners it's fine.
+
+PRIYA: And the brand redesign project — how's that going?
+
+NADIA: It's going okay but it's messier. The client is in Asana — I invited her — and she logs in sporadically. Sometimes she'll go two weeks without checking and then come in and comment on five old tasks that are already resolved and I have to context-switch. Also she's not a project management person and I think the interface overwhelms her. She told me once "there's too much going on when I log in." And I didn't have a good answer because she's right.
+
+[00:17:44]
+
+PRIYA: You mentioned working across multiple clients and tools. How does that affect your Asana experience?
+
+NADIA: It's one of my biggest pain points. I have two workspaces in Asana — one for my personal/freelance business and one that a client set up and invited me to. And switching between them is annoying. Like I'll be in my workspace and get a notification that something happened in their workspace and I have to click through and suddenly I'm in a different context. And the layout resets, or my settings are different, or I can't find what I was looking at before.
+
+Also — and this is a genuine complaint — I can't see all my tasks across workspaces in one view. I know that might be a hard technical problem. But as a freelancer managing multiple clients, the thing I most need to see is "what do I personally need to do today" across all of my work. And I have to check two different places for that. It's a fundamental workflow gap for my use case.
+
+PRIYA: Have you found any workarounds?
+
+NADIA: I've thought about putting everything into one workspace. But then my client projects and my personal stuff are all mixed together and that's also a mess. There's no clean answer. I've mostly just resigned myself to checking two places.
+
+[00:23:15]
+
+PRIYA: Let's talk about the first few weeks of using Asana. What was hardest?
+
+NADIA: Two things. First was understanding the relationship between tasks, subtasks, and sub-subtasks. I kept nesting things too deep and then they'd become invisible in the main view and I'd forget about them. I actually missed a deadline once because a task was buried four levels deep in a subtask hierarchy and didn't show up in my task view. That was not good.
+
+PRIYA: What happened?
+
+NADIA: The client noticed before I did, which was embarrassing. It was a deliverable review deadline, nothing catastrophic, but still. After that I made a rule for myself — no subtask nesting past two levels. But I had to figure that out through failure, not through any guidance from the product.
+
+PRIYA: And the second thing?
+
+NADIA: The second thing was the dependency model. I came from a background where projects have a lot of dependencies — like task B can't start until task A is done — and I spent a lot of time trying to figure out how to model that properly in Asana. There's a way to set task dependencies but it's not super prominent and I didn't find it until week three. And when I did find it, the UX around it was a bit clunky. Like if a dependency is blocking a task, the visual indication is subtle. I've worked in tools where blocked tasks turn red or get moved to a different column. In Asana I feel like I have to actively look to see if something is blocked.
+
+[00:29:40]
+
+PRIYA: What features did you discover late that you wish you'd found earlier?
+
+NADIA: The rules and automations. I set up a rule that automatically moves tasks to a "Ready for Review" section when they're marked complete — so I review everything before it's truly done. That was a game changer for my client work. But I set it up in week six. For the first six weeks I was doing that review manually.
+
+Also custom fields. I use a custom "client" field now to tag which client a task is for so I can filter across everything. But again, I set that up late. I think custom fields are really powerful but they're also easy to over-engineer. I went down a path at one point of setting up like eight custom fields and then the task view became overwhelming. I stripped it back down to three.
+
+PRIYA: How did you know how many fields was too many?
+
+NADIA: I didn't, until it felt wrong. There's no feedback mechanism in the product for that. It would be nice if there was something like "you have 7 custom fields, are you sure you need all of these?" Obviously that's hard to build. But I think about it because I've coached clients on project management tool setup and the #1 mistake everyone makes is over-configuring. And Asana kind of enables that.
+
+[00:35:18]
+
+PRIYA: Did you use any of the onboarding support Asana offers — Academy, templates, etc.?
+
+NADIA: I looked at Asana Academy and honestly it's really good. Like the content quality is high. But it's also — it's a lot. I went in thinking I'd do a couple of modules and ended up feeling like I'd enrolled in a course I didn't sign up for. I wanted answers to specific questions, not a curriculum. And the search in the help center is pretty good but sometimes I know what I want to do but I don't know the Asana vocabulary for it. Like I wanted to do "if task is marked done, notify me" and I didn't know that was an "automation rule" and searching for "notifications for task completion" took me a while to get to the right place.
+
+PRIYA: Do you remember how you eventually found it?
+
+NADIA: I asked in an Asana community forum. Someone answered in like 20 minutes, which was great. But I had to know to go to the forum. I think the in-product help should have a clearer path to "ask the community."
+
+[00:40:05]
+
+PRIYA: Is there a moment you'd point to as the turning point when Asana started working for you?
+
+NADIA: When I started treating my Asana setup as a project in itself. Like I made an actual project called "Asana Setup" where I track things I want to configure or learn. And that sounds meta and maybe a little obsessive, but having that dedicated space to experiment meant I stopped hacking my live client projects to try new features. Once I had a sandbox I got better fast.
+
+PRIYA: That's a creative solution. Did you come up with that yourself?
+
+NADIA: I think I saw someone mention it in the community forum, actually. Which makes me think — Asana probably knows that this is a thing people do, and they should just offer it as a default. Like when you first sign up: "here's your client project, and here's a practice workspace to experiment." I think that would help a lot of people.
+
+[00:44:00]
+
+PRIYA: Final question — what would you tell someone in a similar position to you, freelance PM, just starting with Asana?
+
+NADIA: Don't try to migrate everything at once. Pick one project, preferably one where all the stakeholders are on the same page about using the tool. Don't pick a project where you're going to have to convince a reluctant client to log in — that's a recipe for frustration in the first month.
+
+And invest time up front in your own setup, even if it means the first project is a little slow. The time I spent configuring custom fields and rules paid off by project three, but if I'd been judging Asana purely on project one I might have quit.
+
+Also — don't nest tasks more than two levels. Just don't. I learned that the hard way.
+
+PRIYA: [laughs] Thank you, Nadia. This was really helpful.
+
+NADIA: Happy to. It's kind of therapeutic to talk through this stuff.
+
+---
+
+[END OF TRANSCRIPT]
+
+RESEARCHER NOTES (Priya S.):
+- Multi-workspace context switching is a fundamental gap for freelancer persona; "my tasks across all workspaces" is an unmet need that likely applies to anyone in multiple orgs
+- Client visibility vs. internal notes is a recurring tension — current workaround (scroll-and-hope) is fragile; real permission model too complex to navigate
+- "Asana Setup" meta-project as self-invented sandbox: organic behavior Asana could formalize as a default
+- Subtask depth → task invisibility → missed deadline; no product guardrail or warning
+- Feature vocabulary gap ("I didn't know it was called an automation rule") — help search assumes user knows the product's terminology
+- Contradiction: says Asana Academy content quality is high, but also says it felt like enrolling in a course she didn't sign up for — quality ≠ appropriate format for in-flow learning
+- Late discovery of rules/automations (week 6) despite being the highest-leverage feature for her workflow
+- Strong JTBD signal: "I need to look competent and organized to clients without requiring them to become Asana users"

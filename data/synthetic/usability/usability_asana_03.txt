@@ -1,0 +1,112 @@
+DISCOVERY LENS — SYNTHETIC USABILITY TEST
+Test ID: UT-ASANA-03 | Task: Finding Overdue Tasks
+Participant: Kwame A., 41, Operations Director — new to Asana, experienced w/ MS Project + Smartsheet
+Facilitator: Reza H. | Observer: Priya S.
+Date: 2026-03-13 | Device: Windows 10, Chrome, 27" external monitor
+Session: remote moderated, Zoom screenshare
+
+TASK (read aloud):
+"You're back from a week's vacation. Find all tasks across all your projects that are
+currently overdue — regardless of who they're assigned to.
+Then narrow down to show only the overdue tasks assigned to you."
+
+Pre-loaded: workspace with 4 active projects, 60+ tasks, ~12 overdue across projects,
+5 of those assigned to participant.
+SUCCESS: all-project overdue view reached, own overdue tasks filtered.
+Criterion time: under 4 min.
+
+---
+
+OBSERVER NOTES
+
+00:40 — P: "coming back from vacation, I want to see what's overdue. in Smartsheet I'd go to Reports."
+starts scanning left sidebar.
+
+00:58 — tries Home first.
+scrolls Home view looking for overdue section. not there (widget not configured by default).
+P: "I don't see overdue here"
+
+01:25 — tries My Tasks.
+sees red due dates on some tasks.
+P: "these are overdue but this is only my tasks. I need everything, including other people's."
+[note: correctly identifies limitation. moves on quickly. good mental model.]
+
+01:44 — looks at sidebar. clicks Portfolios.
+P: "this might have a cross-project view"
+portfolios shows project-level status. no task list.
+P: "this is project level not task level. not what I need."
+
+02:30 — tries search bar. types "overdue".
+results: tasks with the word "overdue" in the name. zero results.
+P: "...that just searched for the word. not what I meant."
+[note: search ≠ filter. P applying wrong mental model from Smartsheet]
+
+02:55 — opens one project (Q2 Product Roadmap). clicks Filter.
+sets: due date before today + incomplete.
+P: "there we go — red tasks. but this is one project. I need all four."
+looks for global filter option. doesn't find one.
+P: "do I have to do this in each project one by one? that's... not great."
+
+03:45 — P: "there has to be a better way. let me look at Reporting."
+navigates to Reporting in sidebar.
+spends ~90s building a chart: task count, filter incomplete + due before today.
+chart shows: "12 overdue tasks"
+P: "ok 12. but I can't click through. I want the list, not the number."
+[note: aggregate ≠ actionable. common mismatch in reporting UX]
+
+05:10 — P: "let me try the search again but more carefully"
+clicks filter icon next to search bar — finds Advanced Search.
+P: "oh! there's a more powerful version"
+sets: due date on or before today / incomplete / assignee = any
+hits Search.
+
+05:28 — list of 12 overdue tasks across all projects loads.
+P: "THERE we go. this is exactly what I wanted."
+P: "why is this not the first thing I see when I come back from vacation?"
+[note: strong verbal reaction. visible relief + frustration simultaneously]
+
+F: "can you now filter to just your tasks?"
+P: changes assignee filter to own name. Search. 5 results. done.
+
+06:02 — P notices "Save search" link. clicks without prompting.
+names it "My overdue tasks"
+P: "oh good this exists. but I found it by accident."
+
+---
+
+WRONG PATHS TAKEN (in order):
+1. Home — no overdue widget
+2. My Tasks — own tasks only, not all
+3. Portfolios — project-level, not task-level
+4. Basic search — keyword search, not filter
+5. Reporting dashboard — aggregate count, not list
+6. Advanced search — CORRECT (found at 05:10)
+
+---
+
+TASK OUTCOME
+completed: YES | time: 6m 02s (criterion was <4 min) | errors: 5 wrong paths before correct one
+bonus: saved search unprompted
+
+POST-TASK
+
+difficulty (1–7): 6
+P: "I know project management software. if I'm a 6, someone new to PM tools would probably give up."
+P: "in Smartsheet this is 2 clicks. Reports section, open an overdue report, done."
+P: "the advanced search is actually powerful. the path to it is terrible."
+
+what would've helped:
+P: "a catch-up mode. when I log in after a week, just tell me: 12 overdue tasks,
+   5 things that need your attention. that's what a good EA would do."
+P: "save search should be on Home as a pinned widget. not hidden after you run a search."
+
+---
+
+OBSERVER SUMMARY (Priya S.)
+- "5 wrong doors" before correct one — no progressive disclosure, no contextual redirect
+- Smartsheet "Reports" mental model strong: first-class feature expected, not buried under search
+- Reporting chart: aggregate count ≠ actionable list — user needed to act, not observe a number
+- Advanced search: solves the problem completely, discoverability near zero
+- Save search: also present, also found by accident
+- High-competence user rated 6/7 — failure rate for novice users almost certain at this task
+- JTBD signal: "when I've been away, I need to quickly understand what I missed and what's urgent"

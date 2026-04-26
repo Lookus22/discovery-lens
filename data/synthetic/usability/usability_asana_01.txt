@@ -1,0 +1,80 @@
+DISCOVERY LENS — SYNTHETIC USABILITY TEST
+Test ID: UT-ASANA-01 | Task: New Project Setup
+Participant: Jamie L., 28, Marketing Coordinator — 0 prior Asana experience
+Facilitator: Reza H. | Observer: Priya S.
+Date: 2026-03-11 | Device: MacBook Pro, Chrome, 13"
+Session: remote moderated, Zoom screenshare
+
+TASK (read aloud):
+"Set up a project called 'Q2 Content Calendar' for your 4-person marketing team.
+It should track blog posts, social content, and email campaigns.
+Invite your colleague Alex (alex@example.com)."
+
+SUCCESS: project created, correct name, sections for content types, Alex invited.
+
+---
+
+OBSERVER NOTES
+
+00:31 — lands on home. reads page. clicks "Create your first project" immediately
+onboarding checklist (bottom-right) — never noticed. not in her path.
+
+00:58 — template gallery loads. long pause. counts options under breath.
+P: "there are a lot of these"
+scrolls full page before acting. ~90s of browsing without clicking anything
+
+01:24 — finds "Content Calendar" under Marketing. hovers. reads preview.
+P: "this is about stages... I need blog, social, email — different types not stages"
+visible decision point: use template anyway vs start blank
+90s indecision. eventually picks template. "I can change it"
+[note: blank project button at top was passed over 3x during browsing]
+
+02:44 — renames project → "Q2 Content Calendar". correct.
+view picker: List / Board / Timeline. reads each label once.
+P: "I'll go with List. Seems like the normal one."
+no exploration. no tooltips opened.
+[note: learn-more links next to each option never touched]
+
+03:12 — privacy dropdown. leaves as Public. "sure, fine." clicks Create.
+
+03:28 — lands in new project. template sections: To Do / In Progress / In Review / Published
+P: "these are wrong for what I need"
+immediately tries renaming. clicks section name → editable. surprised it worked.
+P: "oh that's easy"
+renames: To Do → Blog Posts, In Progress → Social, In Review → Email. ~60s total.
+
+04:50 — tries to delete "Published" section
+right-clicks. nothing useful.
+opens ... menu. scans for "Delete section". sees "Delete". hesitates.
+P: "is that delete the section or delete everything in it?"
+clicks. modal confirms. deletes. OK.
+[note: ~40s on this. label says "Delete" not "Delete section" — caused real confusion]
+
+05:40 — invite. spots Share button top-right without hesitation.
+types alex@example.com. clicks Invite. done.
+P: "I think that's it?"
+
+---
+
+TASK OUTCOME
+completed: YES | time: 5m 42s | errors: 2
+— template-content mismatch (self-recovered, ~90s cost)
+— delete label confusion (~40s)
+
+POST-TASK
+
+difficulty (1–7): 3
+P: "Lucky there was something close to what I needed. If there wasn't I'd have been more stuck."
+P: "The List/Board/Timeline thing — I just guessed. Would've been nice to have a hint like
+   'if you're tracking content types, try Board'"
+P: "I still don't know if I picked the right view. That's a bit of an open question."
+
+---
+
+OBSERVER SUMMARY (Priya S.)
+- onboarding checklist: completely bypassed, never in task path
+- template gallery: paralysis from too many options, no filtering by use-case
+- view picker: "safest default" heuristic — no understanding of tradeoffs
+- section delete: label specificity issue caused unnecessary friction
+- invite flow: smooth, no issues
+- key quote: "I knew what I wanted but I didn't know how to get there"

@@ -1,0 +1,98 @@
+DISCOVERY LENS — SYNTHETIC USABILITY TEST
+Test ID: UT-ASANA-02 | Task: Task Assignment
+Participant: Renata V., 34, Account Manager — used Asana briefly ~2 yrs ago, not a regular user
+Facilitator: Reza H. | Observer: Priya S.
+Date: 2026-03-12 | Device: Windows 11, Chrome, 15" laptop
+Session: remote moderated, Zoom screenshare
+
+TASK (read aloud):
+"In the project 'Q3 Account Renewals', find the task 'Send renewal proposal to Thornfield Inc.'
+Assign it to Maya. Set due date to this coming Friday. Mark it high priority.
+Leave a comment for Maya to check contract terms before sending."
+
+Pre-loaded: project with ~15 tasks across 3 sections. target task in "Drafts" section.
+SUCCESS: correct task, assigned Maya, correct date, priority = High, comment left.
+
+---
+
+OBSERVER NOTES
+
+00:44 — lands in project list view. scans for task name.
+scrolls. finds two Thornfield tasks. reads both titles carefully.
+selects correct one: "Send renewal proposal to Thornfield Inc." — in Drafts section.
+
+01:18 — clicks task. detail panel opens right side.
+spots Assignee field immediately. "No assignee."
+clicks → dropdown → finds Maya → selects. fast. no issues.
+
+01:50 — due date field. clicks → calendar opens.
+P: "today is Wednesday... Friday is the 14th" → clicks Mar 14. done.
+
+02:14 — priority. looks at task panel. scans fields.
+P: "I don't see priority..."
+looks at toolbar icons at top of task panel instead of scrolling down in fields.
+[note: priority is a custom field, below the fold in the panel]
+
+02:33 — spots flag icon in toolbar. hovers.
+P: "maybe that's it?" — clicks flag.
+flag turns orange.
+P: "did that set it to high?"
+reads tooltip: "Mark as milestone"
+P: "oh no that's not right" — clicks flag again to toggle off.
+[note: flag/milestone vs priority — semantic overlap caused misfire]
+
+03:00 — F: "what are you looking for?"
+P: "a priority setting. I feel like I've seen it in Asana before but I can't find it"
+still not scrolling the task panel
+
+03:20 — tries hovering over other toolbar icons one by one. nothing.
+
+03:45 — finally scrolls down in the task panel.
+P: "oh! there it is." — Priority field w/ dropdown: Low / Medium / High.
+selects High.
+P: "I just had to scroll. I wasn't expecting to scroll there."
+[note: ~90s lost on priority. panel scroll not intuitive]
+
+04:28 — comment. scrolls to bottom of panel.
+clicks comment box. types:
+"Hey Maya — before you send this, please check the contract terms for Thornfield first.
+The renewal terms changed last quarter. Thanks!"
+[note: P added context beyond what was asked — realistic behaviour]
+clicks Send.
+
+04:55 — P: "done, I think"
+
+---
+
+BONUS SCENARIO (unprompted follow-up)
+F: "you've assigned 8 tasks to Maya. from one place, how would you check she has what she needs?"
+
+P goes to project. clicks Filter → assignee → selects Maya. project filters to Maya's tasks.
+P: "useful — but this is only this project. if she has tasks elsewhere I wouldn't see them."
+P looks for cross-project view. navigates to team members in sidebar. clicks Maya's name.
+P: "oh! this shows everything across projects" — reacts visibly. "I didn't know this was here"
+[note: member profile page not known to user before. greeted as a genuine discovery]
+P: "if I'd known this existed I'd use it every day. I manage tasks across a lot of people."
+
+---
+
+TASK OUTCOME
+completed: YES | time: 4m 55s | errors: 2
+— milestone flag misfire (~30s)
+— priority field not found until scroll discovery (~90s)
+
+POST-TASK
+
+difficulty (1–7): 4
+P: "assignment and date were easy. priority was frustrating."
+P: "if I'm doing this 20 times a day across 20 tasks that's 20 moments of friction"
+P: "priority should be near the top — it's as important as due date"
+
+---
+
+OBSERVER SUMMARY (Priya S.)
+- flag/milestone icon: ambiguous — shares semantic space with "important/urgent"
+- priority field below the fold: invisible under time pressure, panel scroll not signalled
+- prior Asana experience created false confidence — slowed error recovery vs a fresh user
+- member profile (cross-project task view per person): high-value, near-zero awareness
+- strong JTBD signal: "I need to verify my team has what they need without opening 12 projects"

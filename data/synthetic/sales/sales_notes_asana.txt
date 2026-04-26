@@ -1,0 +1,140 @@
+DISCOVERY LENS — SYNTHETIC SALES / CS CALL NOTES
+Source type: Customer Success + Account Executive field notes
+Product: Asana (Business tier)
+Focus: New team activation, first-project completion, onboarding friction
+Note taker format: Informal internal CRM notes, mixed quality, some incomplete
+
+---
+
+=== ACCOUNT: Brightfield Logistics ===
+AE: Tom R. | CSM: Dana W.
+Stage: 30 days post-close (expansion review)
+Team size: 22 licensed seats
+Industry: Logistics / Supply Chain
+
+CALL DATE: 2026-02-04
+ATTENDEES: Jordan M. (Ops Manager, champion), Shelby T. (IT admin)
+
+NOTES (Tom R.):
+Jordan confirmed the team completed their first project — compliance documentation — in week 4. She was happy with that but flagged that onboarding her field team (8 store managers across locations) was a mess. Quote: "They got an invite email and then nothing. I had to be their Asana trainer." She wants a "team kickoff checklist" for admins who are rolling out to non-technical users.
+
+Main pain still: permissions scoping. She tried to give store managers view-only access to their own section only. Couldn't do it cleanly. Ended up just trusting people not to snoop. CSM Dana flagged this as a potential upgrade trigger — more granular permissions are available at Enterprise.
+
+Expansion signal: Jordan mentioned she'd like to add their 8 store managers as formal users, not just guests. Currently on Business, store managers are using guest access. If they add 8 seats that's a meaningful expansion. Blocker: budget approval needed from CFO. Follow-up due 2026-02-18.
+
+One negative: Jordan mentioned that mobile experience was "okay" but two store managers had trouble completing tasks on mobile. She thinks this is a deal-breaker for true field adoption. Worth flagging to product.
+
+=== ACCOUNT: Helix Creative Agency ===
+AE: Marcus O. | CSM: Dana W.
+Stage: 14 days post-trial, evaluation
+Team size: 11 (evaluating Business tier)
+Industry: Marketing / Creative Services
+
+CALL DATE: 2026-02-09
+ATTENDEES: Claire D. (Creative Director, decision-maker), Yusuf B. (Project Coordinator)
+
+NOTES (Marcus O.):
+This is a competitive eval against Monday.com. Claire has used both before at different companies. She said Asana is "more powerful" but Monday is "easier to start on day one." That's the core objection. Specifically she called out:
+- Monday has a visual onboarding that gets you to a real project in under 10 minutes
+- Asana's onboarding took her "like 45 minutes to feel oriented"
+- "I'm comfortable with Asana but if I hand this to my team, half of them will struggle"
+
+She did complete a test project (Q1 pitch tracker) during the trial — it went okay. She liked the timeline view for pitches.
+
+Main ask: better support for teams where 1-2 people are power users and the rest are occasional contributors. She wants a "light mode" for people who just need to update their tasks, not manage the whole tool.
+
+Objection to close: pricing. 11 seats at Business is expensive for a 11-person creative shop. We discussed annual billing. She's thinking about it. Decision expected 2026-02-20. Risk: Monday.com is cheaper for their use case and she knows it.
+
+FOLLOW-UP: Send comparison doc. Loop in CSM for a custom trial extension if needed.
+
+=== ACCOUNT: Novara Health Systems ===
+AE: Preet S. | CSM: Tom R.
+Stage: 60 days post-close (first QBR)
+Team size: 47 licensed seats
+Industry: Healthcare (admin, not clinical)
+
+CALL DATE: 2026-02-12
+ATTENDEES: David K. (Chief of Staff, sponsor), Maria L. (Project Manager, power user), IT rep (name not noted)
+
+NOTES (Preet S.):
+First QBR went well overall. Maria is a true champion — she's done the Asana certification, she's built out templates for the team, she's basically become the internal Asana expert. David is happy because for the first time he can see cross-departmental project status without 4 weekly update emails.
+
+HEALTH: Green. Usage is strong. 39 of 47 seats active in the last 30 days. First cross-departmental project (IT infrastructure upgrade) completed in week 3. Maria attributes success to her doing a 30-minute kickoff session with every department before they were added to the project.
+
+Pain flag: Maria is exhausted. She's become the de facto Asana trainer for the whole org and it was not part of her job description. Quote: "I love the tool but I didn't sign up to be a full-time Asana teacher." She wants Asana to do more of the training lift — better in-app guidance for new members so she doesn't have to personally onboard every person. Specifically mentioned wanting a way to send a "here's how to use this project" tutorial directly from within Asana to new invitees.
+
+Expansion: David wants to add 20 more seats in Q2 for the clinical admin team. He's waiting on procurement approval. This is a solid expansion signal.
+
+One note from IT: they want SSO, which is Enterprise only. We're not pursuing Enterprise at this time but worth flagging for renewal conversation.
+
+=== ACCOUNT: Opal Street Media ===
+AE: Marcus O. | CSM: Leila B.
+Stage: Churned — 45 days post-close
+Team size: Was 9 seats
+Industry: Media / Publishing
+
+CALL DATE: 2026-02-17 (churn recovery call)
+ATTENDEES: Alex V. (Managing Editor, was champion)
+
+NOTES (Marcus O.):
+They canceled. Alex reached out to give us feedback which was generous. Summary of why they left:
+
+1. Engineering team (3 engineers) refused to use Asana. They were already on Linear and GitHub Issues and felt that adding Asana was redundant. After two weeks of trying to maintain both systems, the engineering lead stopped updating Asana entirely. Alex then had no visibility into engineering work, which was the main reason they signed up.
+
+2. The content team (5 people) actually liked Asana. They used it for editorial planning and it worked well. But they couldn't get cross-functional visibility without the engineering team being in it.
+
+3. The deciding factor: the company is 9 people. At that size, they couldn't afford to maintain two PM tools and pay for Asana on top of their existing subscriptions.
+
+Alex said: "If Asana had a way to pull in GitHub Issues without engineers having to touch Asana, we'd probably still be customers." That's a real product gap we hear often with eng-adjacent teams.
+
+Recovery options: None at this time. Alex said they'd revisit if they scale to a point where the dual-tool problem is worth solving differently. Mark for re-engage at 6 months.
+
+=== ACCOUNT: Strata HR Solutions ===
+AE: Preet S. | CSM: Leila B.
+Stage: 21 days post-close (early check-in)
+Team size: 14 seats
+Industry: HR Consulting
+
+CALL DATE: 2026-02-24
+ATTENDEES: Brigid T. (CEO/Owner, decision-maker), Reya M. (Senior Consultant)
+
+NOTES (Leila B.):
+Early check-in call requested by Brigid — she was frustrated. They signed up 3 weeks ago and have not completed a project yet. Specific issues:
+
+1. Brigid set up two projects and neither has been updated by her team in 5 days. "I feel like I'm talking to myself." She said team members log in, see the project, close the tab.
+
+2. She didn't do any kind of kickoff or orientation with her team. "I figured they'd figure it out." They didn't.
+
+3. She chose to migrate an existing client engagement (already 50% done) as their first Asana project. That created a lot of messy backfill. Team felt like they were doing double work.
+
+I walked her through the basics again on the call. We agreed she would:
+- Start a fresh project (new client, not existing)
+- Do a 20-min team session to walk through how tasks work
+- Not worry about migrating old data right now
+
+She seemed more confident by end of call but I'm rating this account as AT RISK. If she doesn't complete a project in the next 2 weeks I think she'll churn. Flagging for close monitoring.
+
+One quote I want to flag for product: "Why didn't Asana tell me how to get my team started? I got a bunch of emails about features but nothing that said 'here is how to make sure your team actually uses this.'"
+
+=== ACCOUNT: Lumen Digital (trial) ===
+AE: Tom R.
+Stage: Trial day 9 of 14
+Team size: 6 (evaluating Premium)
+Industry: Digital Marketing Agency
+
+NOTES (Tom R.) — async from email thread, no call:
+Trial lead (Poppy K., co-founder) emailed saying they're "close to giving up." They set up a project on day 1 and no one has used it. She invited 5 people, 2 accepted the invite, 0 have updated any tasks.
+
+I replied with a quick-start checklist and offered a 15-minute call. She accepted the call.
+
+POST-CALL NOTES: Called today. Root cause: Poppy set up the project and sent team members an invite, but didn't explain what she wanted them to do. Team members saw an invite, clicked into a partially set up project with no instructions, and closed it. No one told them what action to take.
+
+Resolved by: doing a 10-minute joint session over Zoom where I screen-shared and showed the team what to do. Within 30 minutes of ending the call, 4 of 5 team members had updated tasks. Poppy said: "Why didn't the trial just do this for me?"
+
+Note for CSM handoff: this is a common pattern — the invite is accepted but no one acts because there's no clear "what to do next" for invited members. The CSM team spends significant time replicating this call. If this was automated or guided in-product it would save significant CS resources and probably improve trial-to-paid conversion.
+
+Conversion likelihood: HIGH if they complete first project before trial ends. Currently at risk of running out of trial time. I've offered a 7-day extension.
+
+---
+
+[END OF SALES/CS NOTES]

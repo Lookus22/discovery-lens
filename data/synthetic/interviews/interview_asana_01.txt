@@ -1,0 +1,132 @@
+DISCOVERY LENS — SYNTHETIC USER INTERVIEW
+Project: Asana Onboarding
+Interview ID: INT-ASANA-01
+Participant: Sarah K., Content Marketing Manager, ~30-person B2B SaaS company
+Interviewer: Priya S., UX Researcher
+Date: 2026-03-17
+Duration: 44 minutes
+Context: Sarah's team signed up ~6 weeks ago; completed first project within 3 weeks
+
+---
+
+[00:01:05]
+
+PRIYA: Thanks for joining, Sarah. Let's just start from the beginning — how did your team end up on Asana?
+
+SARAH: So our CMO basically said we need a project management tool, here are three options, pick one. And we picked Asana. Which I say like it was a group decision but honestly it was mostly me because I'd heard of it and the other two options were Monday.com and something I'd never heard of. So I just went with Asana because at least I had some mental model of it.
+
+PRIYA: Had you used it before?
+
+SARAH: A little. Like at a previous job it was sort of around but I wasn't a power user. I mostly just checked off tasks that other people assigned me. Setting it up myself was a completely different thing. I remember thinking — okay so I've seen this tool before and I still don't know how to set it up. Which felt embarrassing.
+
+PRIYA: Why embarrassing?
+
+SARAH: Because I'm supposed to be organized. That's literally part of my job. So admitting that a project management tool is confusing felt like a character flaw. I think that's partly why I spent so much time trying to figure it out myself before asking anyone. I watched a bunch of YouTube videos actually. Not Asana's official ones, like third-party ones. Which is kind of funny in hindsight — the official help was probably fine but I trusted random people on YouTube more because they showed actual workflows.
+
+[00:04:50]
+
+PRIYA: Walk me through setting up your first project.
+
+SARAH: Okay so our first real project was a product launch campaign. Which, again, in hindsight was maybe too big. It involved like six workstreams — email, social, blog, PR, paid, and events — and I tried to set up sections for each one. And then within each section I had tasks and subtasks and... it got complicated fast.
+
+The issue was I kept second-guessing the structure. Like, is a blog post one task or multiple tasks? Is it one task per post, or one task per stage — brief, draft, review, publish? I kept changing my mind. And every time I restructured things, the people I'd already assigned tasks to would get notifications and be like "why did my task move?" And I'd have to explain.
+
+PRIYA: How did the team respond to those changes?
+
+SARAH: Not great. There was one person, Camille, who does our social content, and she came to me like week two and said "I don't know what I'm supposed to be doing in here." And I felt terrible because I'd sent her like three task reassignments in two days. So I stopped reorganizing and just let the structure be imperfect. Which meant the project had this weird hybrid thing where some workstreams were in sections and some were in their own sub-projects and it was not clean.
+
+[00:09:20]
+
+PRIYA: Did you ever feel like you got traction?
+
+SARAH: Yeah, actually. The thing that changed it for us was — okay so I'm embarrassed I didn't do this earlier, but I booked a 30-minute team sync specifically to walk through Asana together. Like, here's how I've structured this, here's where your tasks are, here's how to mark things done. And after that meeting things got way better. People started using it. I think before that meeting everyone was kind of tiptoeing around the tool.
+
+PRIYA: What do you think happened in that meeting that made the difference?
+
+SARAH: I think people stopped feeling like they might do something wrong. Like there was a fear of — if I click the wrong button will I mess something up? Will I delete someone's task? And just showing them that it's pretty hard to break things, and that there's an undo function, and that I could fix anything they messed up — that helped. Also I showed them where their tasks were specifically. Not the whole project, just "here's your stuff." Once they could see their own name attached to things it clicked.
+
+[00:14:33]
+
+PRIYA: What features caused the most confusion early on?
+
+SARAH: Comments versus task descriptions. I did not understand for a long time that the description and the comment thread were two different things and that one was more for context and one was for back-and-forth. I put updates in the description for the first two weeks and then realized no one was seeing them because they weren't getting notifications for description edits. So I'd update a brief in the description and then wonder why no one was responding.
+
+PRIYA: Did you figure that out on your own?
+
+SARAH: My colleague figured it out. She came from a company that used Asana heavily and she said — oh you should be leaving a comment and tagging people. And I felt dumb. But also I feel like there should be a clearer UI distinction. Like the description and the comment box look really similar?
+
+Also — and this is a totally different thing — the approvals feature. We have an approval workflow for every piece of content, everything goes through our head of content before it goes live. I didn't know Asana had an approvals feature until like a month in. I was doing approvals over email this whole time. And when I found it I was genuinely annoyed because it was exactly what I needed and it had been there the whole time.
+
+PRIYA: How did you find it?
+
+SARAH: I think I Googled "Asana approval workflow" and a blog post came up. Not from Asana's site. Which is — look, I'm not trying to be critical, but if there's a feature that directly maps to a very common marketing workflow, maybe surface that earlier? Like during setup when it detects you're in marketing or when you add a content project?
+
+[00:20:11]
+
+PRIYA: Let's talk about the first project completing. What did that feel like?
+
+SARAH: Honestly? Anticlimactic. I'm not sure I "completed" it so much as it just... ended. The campaign went live, and then the tasks were just kind of sitting there marked done. I didn't really know what to do with the project after. Do I archive it? Do I leave it? I didn't want to delete it because the comments had useful context. So it just sat there and now it's in my sidebar and every time I look at it I feel vaguely guilty.
+
+PRIYA: [laughs] Has that affected how you think about starting new projects?
+
+SARAH: A little. I think I'm more thoughtful now about what "done" looks like before I start. Like the project needs a clear end state, not just a campaign launch but like, all tasks complete, retrospective done, project archived. But I wasn't thinking about that the first time.
+
+[00:24:45]
+
+PRIYA: What about integrations? Did you connect Asana to other tools?
+
+SARAH: We use Slack and Google Workspace, so I tried to connect those. The Slack integration works okay — it will notify in a channel when a task is completed. We set that up for a channel called #campaign-updates and in theory the team can see progress without going into Asana. In practice I think three people muted that channel because it was too noisy. So we turned off some of the notifications and now I'm not sure it does anything.
+
+Google Docs I tried to link in task descriptions, which is fine, but it's just a link, it doesn't tell you anything about the doc. Like if the doc has been updated I still have to go check it. I kind of hoped it would be smarter than that. Like "this linked doc was edited yesterday" or something. Maybe that's too much to ask.
+
+PRIYA: Any other tools?
+
+SARAH: We don't use any others for project management. But I will say — I looked at the integration library at some point and it's enormous. Like there are hundreds of integrations. And I felt weirdly paralyzed. Like should I be connecting to all these things? Am I missing something? I ended up doing nothing because choosing felt hard.
+
+[00:29:58]
+
+PRIYA: Was there a moment where you almost switched to a different tool?
+
+SARAH: Yeah. Week two. I was very close to saying let's just use Notion because at least I know Notion. The specific thing that almost made me switch was I couldn't figure out how to see across all my projects in one view. Like I wanted a single place to see everything due this week across all my projects and I could not find it for a long time. I think it's in the "My Work" section? Or "Home"? I keep forgetting what it's called. But at the time I couldn't find it and I thought — what is even the point of this if I still have to check each project individually.
+
+PRIYA: Did you find it eventually?
+
+SARAH: Yes, but someone told me. A friend who uses Asana sent me a screenshot when I complained on Slack. And I was like — okay cool this is the thing I needed. But it should not require a friend to tell me that exists.
+
+[00:34:12]
+
+PRIYA: Has Asana changed how your team works?
+
+SARAH: I think so. The thing I notice most is I get fewer status-update Slack messages. Before, people would DM me constantly like "hey is the blog draft done yet" and now they can just go look. That is genuinely better. I do think the team trusts the tool more now than they did in the first few weeks.
+
+But also — and this is a contradiction maybe — I spend more time managing Asana than I expected. Like keeping the project clean, updating tasks, making sure descriptions have enough context. That maintenance work wasn't something I budgeted for. It probably takes me 20-30 minutes a day? And I'm not sure that's offset by the time I save elsewhere yet. Maybe eventually.
+
+PRIYA: Do you think that will change over time?
+
+SARAH: I think so. I think part of it is that we're still building habits. Like we don't have a consistent process for how we write task descriptions or when to use subtasks versus tasks and those decisions still take mental energy every time. If we had clearer norms that would help.
+
+[00:39:40]
+
+PRIYA: Last question — what's one thing Asana could have done differently to make those first 30 days better?
+
+SARAH: I think I needed a real guided setup experience that was specific to my team's work, not generic. Like not "create your first task!" but "you're setting up a marketing team, here's a project template for a campaign launch, here's how approvals work, here's how to connect your Slack channel." Just... make it relevant to me. The generic stuff felt like training wheels when I needed a bicycle.
+
+Also — and I thought of this because you asked — when I added my team members, nothing happened. Like, they got an invite, they joined, and then... nothing told me what to do next. There was no "great, now orient your team" prompt. I think a lot of my early pain would have been avoided if the product had said "now that your team is here, here's a 3-step checklist to make sure everyone knows what they're doing."
+
+PRIYA: That's really helpful. Thank you, Sarah.
+
+SARAH: Of course. I hope it helps. And I want to say again — I do like Asana. I'm not saying it's bad. But the early period was rocky and I think it didn't have to be.
+
+---
+
+[END OF TRANSCRIPT]
+
+RESEARCHER NOTES (Priya S.):
+- "Too embarrassed to ask for help" dynamic — self-sufficiency norm in marketing roles may create a silent onboarding failure mode
+- Structure indecision led to constant reorganization → notification noise → team confusion; signals need for opinionated starting structure
+- Team alignment meeting (week 2, 30 min) was the real activation event, not the product onboarding
+- Approvals feature discovered via Google/blog, not in-product — feature-to-workflow matching gap
+- "Anticlimactic completion" — no closure ritual or archiving prompt; project completion UX absent
+- Cross-project view ("My Work") discovered via social network, not product — findability issue
+- Contradiction: values reduced status DM noise (Asana working) but estimates 20-30 min/day maintenance overhead (not yet clearly net positive)
+- Strong JTBD signal: "I need to stop being the status update hub for my team"

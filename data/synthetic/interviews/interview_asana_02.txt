@@ -1,0 +1,132 @@
+DISCOVERY LENS — SYNTHETIC USER INTERVIEW
+Project: Asana Onboarding
+Interview ID: INT-ASANA-02
+Participant: Jordan M., Operations Manager, mid-size DTC e-commerce brand (~80 employees, apparel)
+Interviewer: Priya S., UX Researcher
+Date: 2026-03-19
+Duration: 51 minutes
+Context: Jordan coordinates warehouse ops, customer service, and supplier management; team adopted Asana ~7 weeks ago; first project completed in week 4
+
+---
+
+[00:01:20]
+
+PRIYA: Jordan, thanks for making the time. Can you tell me a little about your role before we get into the Asana stuff?
+
+JORDAN: Sure. So I'm the ops manager at a direct-to-consumer apparel brand. We sell online only — no retail. My day-to-day is coordinating between our warehouse team, our CS reps, our suppliers, and our internal product and marketing teams. It's a lot of different groups who need to be in sync but don't naturally talk to each other. Like, if we're launching a new product, I need the warehouse to know what's coming, CS to have the answers ready, and the supplier to hit their ship date. That coordination used to happen over email and Slack threads and it was a disaster.
+
+PRIYA: And what made you look for a project management tool?
+
+JORDAN: Q4. Every year Q4 is a nightmare. Black Friday, holiday orders — the volume doubles and the coordination complexity doubles with it. Last year I was managing a shared spreadsheet that had like 200 rows across 6 sheets and nobody knew which tab was current. So after Q4 I said never again. I looked at a few tools. We almost went with Trello because one of my colleagues used it, but my boss had heard good things about Asana and we went with that.
+
+PRIYA: Was there any resistance from your team?
+
+JORDAN: From my core ops team, not really. They trust me. From the warehouse team — a lot. I have warehouse leads who are on their feet all day, they're not at a desk, they're managing physical inventory and people. And I'm telling them here's another app you need to check. Two of them were pretty direct: "I already have the WMS, the scheduling tool, and Slack. I can't add another thing." I had to go through my manager to make it an expectation.
+
+[00:06:44]
+
+PRIYA: How did you set up Asana initially?
+
+JORDAN: I spent a weekend on it. Not exaggerating — Saturday and part of Sunday. I wanted to do it right because I knew if I set it up badly I'd lose people in the first week.
+
+I used a template. I think it was called "operational processes" or something close. I modified it pretty heavily but having a starting point helped. Without that I think I would have been paralyzed. There are a lot of blank-canvas moments in Asana and some are fine and some are just... intimidating.
+
+PRIYA: What do you mean by blank-canvas moments?
+
+JORDAN: Like when you first create a project and it's empty — I can handle that. But then there are moments later where you're trying to do something specific, like I wanted to build a form so warehouse leads could submit stock discrepancy reports without having to be trained on Asana. And you click into the forms feature and it's just an empty builder. No example. No template for a basic intake form. I spent almost an hour building something that didn't quite do what I needed.
+
+PRIYA: What did you need it to do?
+
+JORDAN: I wanted: warehouse lead fills out a form, it creates a task, the task gets assigned to my inventory coordinator automatically, I get notified. That's a simple intake workflow. The form did the first part. The automatic routing — I couldn't figure that out. Something about rules, but the rules setup was really confusing. I ended up having all the tasks come in unassigned and I manually triage them every morning. It works but it's not what I wanted.
+
+[00:13:15]
+
+PRIYA: Tell me about the first project. What was it and how did it go?
+
+JORDAN: The first real project was our Black Friday prep. It was a big one — 40+ tasks across warehouse readiness, CS prep, supplier coordination, and marketing handoffs. I set it up with sections per workstream and assigned tasks to leads in each area. That's the project that took four weeks to complete.
+
+PRIYA: What made it four weeks?
+
+JORDAN: Partly the volume. Partly that the warehouse leads were slow to log into Asana. I'd check the project and nothing had moved in four or five days and I'd have to call them. Which, honestly, might as well have been the spreadsheet. The difference was at least when they did update something I could see it without chasing an email.
+
+The deeper problem was motivation. For the warehouse team, Asana was extra work — it didn't make their day easier, it just gave me better visibility. And they didn't care about my visibility. So I get why they dragged their feet.
+
+PRIYA: Did adoption improve after that?
+
+JORDAN: A little. I have a second project now — tracking supplier lead times — and it's going better. Partly because I built a form intake so suppliers submit their updates through a form and I handle everything in Asana. They never have to touch the tool directly. Which is a bit of a hack but it's working.
+
+[00:19:30]
+
+PRIYA: Let's talk about what was hardest to figure out early on.
+
+JORDAN: Two things. Permissions — and pricing.
+
+Permissions first. I wanted warehouse leads to only see their own section of the project. Not the whole thing. If Warehouse Lead A can see that Warehouse Lead B is behind on their tasks there's going to be drama. I read every permissions help article. I still couldn't do exactly what I wanted. I think they can technically see each other's sections if they scroll. I gave up and just trust that they're too busy to snoop. But it's not the architecture I wanted.
+
+PRIYA: And pricing?
+
+JORDAN: So this is a real issue for us. We're an 80-person company but only about 25 people are using Asana. My core team, the project leads, a few people in marketing. But every Black Friday and Q4 we hire seasonal workers — last year we brought on 18 extra people for 8 weeks. Some of them need to be in Asana because they're coordinating fulfillment tasks. And I'm not paying for 18 full seats for people who will be gone in two months.
+
+PRIYA: How did you handle it?
+
+JORDAN: We used guest access for some of them. But guest access is limited — they can only see what they're directly added to, they can't be assigned tasks in the normal way, some features don't work. I spent a lot of time in week one trying to figure out what guest access actually means and what it blocks. It's not clearly explained. I ended up messaging support and the answer was basically "it depends on which plan you're on and what you're trying to do." Not super helpful.
+
+I ended up just not adding the seasonal workers to Asana and routing their work through their team leads instead. So team leads are double-entering things. It's not great. For a product that's supposed to reduce coordination overhead, the pricing model kind of forced us back into coordination overhead.
+
+[00:27:50]
+
+PRIYA: What about the mobile experience? You mentioned warehouse leads are on their feet.
+
+JORDAN: The mobile app is okay. I don't want to be too harsh because I'm mostly on desktop. But a few warehouse leads said things were hard to find on mobile. One of them couldn't figure out how to mark a task done on her phone — she called me. I had to look it up myself. I think the checkbox was in a different place than she expected, or the UI was different enough from desktop that she was lost.
+
+And notifications on mobile. A couple of warehouse leads turned them off completely because they were getting pinged too often. Then they missed things I actually needed them to see. There's no obvious way to say "only notify me for tasks assigned directly to me" — or if there is, they couldn't figure it out and neither could I without spending real time in the settings.
+
+[00:33:10]
+
+PRIYA: Was there anything that worked well from the start?
+
+JORDAN: The project views. I actually use all three depending on context — list for daily triage, board for status overview with my manager, and timeline for the seasonal planning because it maps to real calendar dates. That flexibility is genuinely good.
+
+And the reporting — but I found that late. Week five or six. I was just scrolling through the sidebar and clicked something I hadn't clicked before. It's useful for my weekly update to my director. I can show her project status at a glance. Before that I was building that summary manually every week.
+
+PRIYA: Do you think you'd have found it sooner with different onboarding?
+
+JORDAN: Definitely. If the product had said "you've been managing a multi-person project for four weeks — here's a report view you might find useful" I would have used it from week two. Instead I found it by accident on week six.
+
+[00:39:40]
+
+PRIYA: If you could start over, what would you do differently?
+
+JORDAN: Two things. First — start with a simpler project. Not Black Friday prep, which is our most complex annual thing. Something small with a clear end state where I can show the team a win fast. The first project being hard and slow didn't leave a great first impression of Asana for the people I needed to adopt it.
+
+Second — actually run an onboarding session for the team. I sent everyone a "here's your login, here's what to do" email. That was not enough. They needed someone to walk them through it. I thought Asana would handle that part. It doesn't. The product onboards the admin — the person who sets everything up. The people I invited just got dropped into a project with no guidance at all.
+
+PRIYA: "Asana onboards the admin, not the members" — is that a fair summary?
+
+JORDAN: Exactly. And for us the admin is not the one who needs hand-holding. The 18 warehouse leads and seasonal workers who've never used a project management tool in their lives — those are the people who needed help and they got nothing.
+
+[00:46:00]
+
+PRIYA: Any final thoughts?
+
+JORDAN: Asana is genuinely powerful and I've probably used maybe 30% of what it can do. That's part of the problem — I can tell there's a lot I'm not using, and I don't know if what I'm not using would help me or just make things more complicated. Every time I look at automations I think "this would be useful" and then I run out of time and close the tab.
+
+And the pricing thing — I want to say it one more time. A per-seat model that doesn't have a good answer for seasonal or temporary contributors is a real issue for companies like us. It's not a dealbreaker but it forced some bad workarounds in our first month that I'm still living with.
+
+PRIYA: Really helpful, Jordan. Thank you.
+
+JORDAN: Of course. If this leads to better onboarding for people like my warehouse team I'd be happy.
+
+---
+
+[END OF TRANSCRIPT]
+
+RESEARCHER NOTES (Priya S.):
+- "Admin is onboarded, not the members" — strong structural insight; invited users land cold with no orientation
+- Seasonal/temp worker seat pricing is a genuine ops blocker — forces workarounds (double-entry via team leads) that directly undermine the tool's value proposition
+- Guest access confusion: limitations poorly explained, requires support ticket to understand; first-month adoption friction
+- Permissions complexity for role-based access: Jordan accepted a suboptimal config rather than continuing to debug
+- Mobile onboarding gap for non-desk workers (warehouse leads): task completion UX differs enough from desktop to cause failure
+- Reporting/portfolio discovered week 5-6 by sidebar accident — proactive feature surfacing could unlock value significantly earlier
+- First project (Black Friday prep) = high-complexity, no personal value to warehouse team; no quick win in first month
+- Strong JTBD signal: "I need new contributors — especially temporary ones — to be able to participate without becoming Asana users"
