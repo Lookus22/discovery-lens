@@ -1,46 +1,231 @@
 # Discovery Lens — Data Contracts
 
-Source of truth for all pipeline module I/O. Last updated: Apr 22, 2026.
+Source of truth for all pipeline module I/O. Last updated: Apr 29, 2026.
 If a contract needs to change, open a GitHub Issue and tag Lucas first.
+
+---
 
 ## Pipeline flow
 
+```
 UploadedFile → extractor.py → raw_text (str)
 → chunker.py → chunks (list[dict])
 → embedder.py → embeddings (np.ndarray, n_chunks × 384)
 → clusterer.py → clusters (list[dict])
+→ source_map.py → source_map (dict) → st.session_state["source_map"]
+→ odi_scorer.py → scored_clusters (list[dict]) → st.session_state["scored_clusters"]
 → llm.py → ost (dict) → st.session_state["ost"]
+```
+
+---
 
 ## extractor.py
-Input:  file (UploadedFile), source_type (str: interview|review|ticket|usability)
-Output: raw_text (str)
+
+```python
+# Input
+file: UploadedFile   # Streamlit UploadedFile object
+source_type: str     # one of: "interview" | "review" | "ticket" | "usability"
+
+# Output
+raw_text: str        # full extracted text, plain string
+```
+
+---
 
 ## chunker.py
-Input:  raw_text (str), filename (str), source_type (str)
-Output: [{"chunk_id": str, "text": str, "filename": str, "source_type": str}, ...]
-Notes:  chunk_id format = "{safe_filename}_{zero_padded_index}" e.g. "interview_01_001"
+
+```python
+# Input
+raw_text: str
+filename: str
+source_type: str     # same enum as extractor.py
+
+# Output — list of dicts, one per chunk
+[
+  {
+    "chunk_id": str,        # format: "{safe_filename}_{zero_padded_index}" e.g. "interview_01_001"
+    "text": str,            # 2–4 sentences
+    "filename": str,
+    "source_type": str
+  },
+  ...
+]
+```
+
+---
 
 ## embedder.py
-Input:  chunks (list[dict])
-Output: np.ndarray shape (n_chunks, 384)
-Notes:  chunks[i] and embeddings[i] share the same index — never reorder independently.
+
+```python
+# Input
+chunks: list[dict]   # output of chunker.py
+
+# Output
+embeddings: np.ndarray   # shape: (n_chunks, 384)
+```
+
+Notes: `chunks[i]` and `embeddings[i]` share the same index — never reorder independently.
+
+---
 
 ## clusterer.py
-Input:  chunks (list[dict]), embeddings (np.ndarray)
-Output: [{"cluster_id": int, "representative_chunks": list[dict], "all_chunk_ids": list[str]}, ...]
-Notes:  representative_chunks = top 3 closest to centroid (full chunk dicts).
+
+```python
+# Input
+chunks: list[dict]        # output of chunker.py
+embeddings: np.ndarray    # output of embedder.py
+
+# Output — list of dicts, one per cluster
+[
+  {
+    "cluster_id": int,
+    "representative_chunks": list[dict],   # top 3 chunks closest to centroid (full chunk dicts)
+    "all_chunk_ids": list[str]             # all chunk_ids belonging to this cluster
+  },
+  ...
+]
+```
+
+---
+
+## source_map.py
+
+```python
+# Input
+chunks: list[dict]    # output of chunker.py
+clusters: list[dict]  # output of clusterer.py
+
+# Output — flat dict for chunk-level traceability
+{
+  "<chunk_id>": {
+    "text": str,
+    "filename": str,
+    "source_type": str,
+    "cluster_id": int | None   # None if chunk was not assigned to any cluster
+  },
+  ...
+}
+```
+
+Notes:
+- Must be called after clusterer.py and before llm.py.
+- Stored in st.session_state["source_map"].
+- Used by the results page to show source quotes per opportunity.
+- No LLM, no external API. Pure dict construction.
+
+---
+
+## odi_scorer.py
+
+```python
+# Input
+clusters: list[dict]   # output of clusterer.py
+chunks: list[dict]     # output of chunker.py
+# total_chunks and total_source_types are derived internally — no extra args needed
+
+# Output — list of dicts, one per cluster, sorted by priority_score descending
+[
+  {
+    "cluster_id": int,
+    "cluster_size": int,
+    # --- Raw signals (available for UI display and debugging) ---
+    "importance": float,             # cluster_size / total_chunks, range 0.0–1.0
+    "avg_sentiment": float,          # raw VADER compound mean, range -1.0 to 1.0
+    "satisfaction": float,           # (avg_sentiment + 1) / 2, range 0.0–1.0
+    "source_type_diversity": float,  # unique source types in cluster / total unique source types, range 0.0–1.0
+    # --- Three scores shown independently in UI ---
+    "odi_score": float,              # importance * (1 - satisfaction) — unmet need signal, range 0.0–1.0
+    "evidence_robustness": float,    # (source_type_diversity * 0.65) + (importance * 0.35), range 0.0–1.0
+    "priority_score": float          # (odi_score * 0.60) + (evidence_robustness * 0.40), range 0.0–1.0
+  },
+  ...
+]
+```
+
+Notes:
+- Deterministic — no LLM, no external API. Uses VADER compound scores per chunk averaged per cluster.
+- `opportunity_score` retired Apr 29 2026. Replaced by three independent scores. PM sign-off: Lucas.
+- Sort key is `priority_score` descending.
+
+### Score definitions
+
+| Score | Formula | What it answers |
+|-------|---------|-----------------|
+| `odi_score` | `importance × (1 - satisfaction)` | How underserved is this need? |
+| `evidence_robustness` | `(source_type_diversity × 0.65) + (importance × 0.35)` | How robustly evidenced across source types? |
+| `priority_score` | `(odi_score × 0.60) + (evidence_robustness × 0.40)` | What should a PM act on first? |
+
+---
 
 ## llm.py
-Input:  clusters (list[dict]), goal (str)
-Output: {"goal": str, "opportunities": [{"jtbd": str, "priority_score": float, "cluster_id": int, "solutions": [{"label": str, "assumptions": [{"text": str, "risk": str}]}]}]}
-Notes:  jtbd strictly = "When I..., I want to..., so I can..."
-        priority_score computed by pipeline (Week 2), not LLM.
+
+```python
+# Input
+clusters: list[dict]          # output of clusterer.py
+scored_clusters: list[dict]   # output of odi_scorer.py
+goal: str                     # from st.session_state["goal"]
+
+# LLM generates via Groq — JTBD and solutions only, no score fields
+{
+  "goal": str,
+  "opportunities": [
+    {
+      "jtbd": str,        # strictly: "When I [situation], I want to [motivation], so I can [outcome]."
+      "cluster_id": int,
+      "solutions": [
+        {
+          "label": str,
+          "assumptions": [
+            {
+              "text": str,
+              "risk": str   # "low" | "medium" | "high"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# After parsing, llm.py merges scored_clusters on cluster_id to produce the final OST:
+{
+  "goal": str,
+  "opportunities": [
+    {
+      "jtbd": str,
+      "cluster_id": int,
+      # --- Injected from scored_clusters, never LLM-generated ---
+      "importance": float | None,
+      "satisfaction": float | None,
+      "source_type_diversity": float | None,
+      "odi_score": float | None,
+      "evidence_robustness": float | None,
+      "priority_score": float | None,
+      "solutions": [...]
+    }
+  ]
+}
+```
+
+Notes:
+- Score fields are **never generated by the LLM** — injected post-parse by merging with `scored_clusters` on `cluster_id`.
+- If a `cluster_id` from the LLM has no match in `scored_clusters`, set all score fields to `null` — do not crash.
+- Always instruct the model to return only valid JSON — no preamble, no markdown fences.
+- On JSON parse failure, retry once with `llama-3.3-70b-versatile`.
+
+---
 
 ## session_state keys
-"goal"         str        — product goal
-"product_name" str        — product name
-"chunks"       list[dict] — output of chunker
-"embeddings"   np.ndarray — output of embedder
-"clusters"     list[dict] — output of clusterer
-"ost"          dict       — full OST JSON
-"source_map"   dict       — chunk_id → {text, filename, source_type, cluster_id}
+
+```python
+st.session_state["goal"]            # str — product goal statement
+st.session_state["product_name"]    # str — product name
+st.session_state["chunks"]          # list[dict] — output of chunker.py
+st.session_state["embeddings"]      # np.ndarray — output of embedder.py
+st.session_state["clusters"]        # list[dict] — output of clusterer.py
+st.session_state["scored_clusters"] # list[dict] — output of odi_scorer.py
+st.session_state["ost"]             # dict — merged OST JSON (LLM output + injected scores)
+st.session_state["source_map"]      # dict — chunk_id → {text, filename, source_type, cluster_id}
+```
+
+Notes: `scored_clusters` must be populated **before** `llm.py` is called so the merge step can do a simple dict lookup without a second pass through raw data.

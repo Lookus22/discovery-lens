@@ -868,7 +868,7 @@ var CATS = {
 
 // ══ GOOGLE APPS SCRIPT CONFIG ══
 // Paste your Web App URL here after deploying the Apps Script (see setup instructions)
-var GAS_URL = 'https://script.google.com/macros/s/AKfycbys767N92cu4HUNs_2-ClGPCYAMuHt4rkRABLVSXqgvQtSwZ5K9ebMG8pePVukGxw4V/exec';  // ← paste your Web App URL here
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbz3G2vdzmpA91UtlSUPhNqLiDRt_di2RG9wL7xlQYSiQu6_OnzvJGbDnYFX4nx_EQ/exec';  // ← paste your Web App URL here
 
 // ══ STATE ══
 var db = { tasks:{}, customTasks:[] };
@@ -1130,8 +1130,8 @@ function deleteTask(id) {
   var custom = load('custom_tasks', []);
   var filtered = custom.filter(t => t.id !== id);
   save('custom_tasks', filtered);
-  // remove from db state
-  if (db.tasks[id]) { delete db.tasks[id]; dbSave(); }
+  // remove from state
+  try { localStorage.removeItem('dl2_task_' + id); } catch(e){}
   updateAll();
 }
 
@@ -1334,16 +1334,17 @@ async function initAll() {
   // Init structure immediately so page isn't blank
   Object.keys(CATS).forEach(catId => initAddTaskRow(catId));
 
-  if (GAS_URL) {
+  if (JSONBIN_ID && JSONBIN_KEY) {
     setSyncStatus('saving');
     await dbLoad();
   } else {
     setSyncStatus('offline');
+    showSetupBanner();
   }
   renderAll();
 
   // Poll for changes from teammates every 30 seconds
-  if (GAS_URL) {
+  if (JSONBIN_ID && JSONBIN_KEY) {
     setInterval(async function() {
       if (_saveTimer) return; // skip poll if we're mid-save
       var ok = await dbLoad();
