@@ -1,8 +1,11 @@
 {
   "_meta": {
     "description": "Approved LLM output schema. Do not change without PM sign-off (Lucas).",
-    "last_updated": "2026-04-22",
-    "owner": "Lucas (schema), Lucas (llm.py + system prompt)"
+    "last_updated": "2026-04-29",
+    "owner": "Lucas (schema), Lucas (llm.py + system prompt)",
+    "changelog": {
+      "2026-04-29": "Replaced opportunity_score with three independent scores: odi_score, evidence_robustness, priority_score. All three are computed by odi_scorer.py and injected post-parse — never LLM-generated. PM sign-off: Lucas."
+    }
   },
   "rules": {
     "json_only": "Return ONLY valid JSON. No preamble. No markdown fences.",
@@ -10,27 +13,46 @@
     "solutions_per_opportunity": "2-3",
     "assumptions_per_solution": "1-2",
     "risk_values": "exactly: low | medium | high",
-    "priority_score": "Return 0 — pipeline overwrites this."
+    "odi_fields": "Do not generate odi_score, evidence_robustness, priority_score, importance, satisfaction, or source_type_diversity — these are all computed by odi_scorer.py and injected post-parse by llm.py on cluster_id."
+  },
+  "score_definitions": {
+    "odi_score": "Classic ODI unmet-need signal. importance × (1 - satisfaction). Range 0–1. High = large cluster that is poorly satisfied.",
+    "evidence_robustness": "Cross-source corroboration signal. (source_type_diversity × 0.65) + (normalised_cluster_size × 0.35). Range 0–1. High = theme appears across many source types.",
+    "priority_score": "Synthesis of both signals. (odi_score × 0.60) + (evidence_robustness × 0.40). Range 0–1. Primary sort key for the results page."
   },
   "example_output": {
     "goal": "Increase 30-day retention for new users on the mobile app",
     "opportunities": [
       {
         "jtbd": "When I first open the app after signing up, I want to understand what I can do with it, so I can decide if it is worth my time.",
-        "priority_score": 0,
         "cluster_id": 0,
+        "importance": 0.38,
+        "satisfaction": 0.27,
+        "source_type_diversity": 0.75,
+        "odi_score": 0.28,
+        "evidence_robustness": 0.62,
+        "priority_score": 0.42,
         "solutions": [
           {
             "label": "Interactive onboarding walkthrough",
             "assumptions": [
-              {"text": "New users do not understand the core value proposition from the home screen alone.", "risk": "high"},
-              {"text": "An interactive walkthrough will not feel annoying if it can be skipped.", "risk": "medium"}
+              {
+                "text": "New users do not understand the core value proposition from the home screen alone.",
+                "risk": "high"
+              },
+              {
+                "text": "An interactive walkthrough will not feel annoying if it can be skipped.",
+                "risk": "medium"
+              }
             ]
           },
           {
             "label": "Progress-based empty states",
             "assumptions": [
-              {"text": "Empty states are a key drop-off point in the first session.", "risk": "medium"}
+              {
+                "text": "Empty states are a key drop-off point in the first session.",
+                "risk": "medium"
+              }
             ]
           }
         ]
