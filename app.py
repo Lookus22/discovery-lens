@@ -2,6 +2,9 @@
 Discovery Lens — Entry point
 Initialises session state keys and renders the home page.
 """
+from dotenv import load_dotenv
+load_dotenv()
+
 import streamlit as st
 
 st.set_page_config(
@@ -31,9 +34,17 @@ st.markdown("""
 1. **Set your goal** — Enter your product name and goal statement
 2. **Upload your files** — Interviews, reviews, support tickets, usability notes (PDF, DOCX, CSV, TXT)
 3. **Get your OST** — The tool clusters insights, frames opportunities in JTBD language, and shows you the evidence behind every decision
-
-👈 Use the sidebar to get started.
 """)
+
+st.divider()
+st.markdown("#### Get started")
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.page_link("pages/screen1_goal-v2.py", label="① Set your goal", icon="🎯")
+with col2:
+    st.page_link("pages/screen2_upload-v2.py", label="② Upload files", icon="📁")
+with col3:
+    st.page_link("pages/screen3-results-v4.py", label="③ View results", icon="📊")
 
 if st.checkbox("Show session state (debug)", value=False):
     st.json({k: str(v)[:200] if v else v for k, v in st.session_state.items()})

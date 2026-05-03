@@ -1,0 +1,41 @@
+Usability Session Notes — Amazon Shopping App (Mobile)
+Task: Find and purchase a specific product within a budget
+Observer: Discovery Lens team | Date: April 2026
+Participant: P1, female, 28, occasional online shopper
+
+---
+
+Task 1: Find wireless headphones under £50
+
+- P1 opens app, types "wireless headphones" in search bar immediately — no hesitation
+- 1st results page: all sponsored. P1 says "are any of these not ads?"
+- P1 scrolls past first 6 results without clicking — visually skipping sponsored badges
+- Clicks on 7th result (£44.99). Reads title but skips straight to reviews
+- Sorts reviews by "most recent" — "I don't trust the top ones"
+- Spends ~90 seconds reading reviews. Pauses on a 2-star: "this is the kind I care about"
+- Notices "Fulfilled by Amazon" badge. "OK so at least returns will be easy"
+- Tries to use "Compare with similar items" — taps it, waits, feature doesn't load
+- P1: "I'll just open another tab" — exits feature, does manual comparison via back button
+- Adds to cart. Proceeds to checkout.
+
+Task 2: Apply a discount code
+
+- P1 looks for discount field at checkout. Doesn't see it immediately
+- Taps through 3 checkout screens before finding "Gift cards & promotional codes"
+- "Why is it called that? I just have a discount code"
+- Enters code. Error: "code not applicable to this item." No explanation of why.
+- P1: "I guess I just won't use it." Completes purchase without code.
+- Post-task comment: "I'd want to know before I add things to cart whether my code works."
+
+Task 3: Find a previously viewed item
+
+- P1 navigates to account > browsing history
+- Scrolls through ~30 items. "I don't remember which one it was"
+- Tries search with partial description. Doesn't find it.
+- Gives up after 2 minutes. "It's probably gone. I'll just search again."
+
+Observer notes:
+- P1 relies heavily on reviews to compensate for low product trust
+- Sponsored content creates friction and reduces trust in search results
+- Discount code UX is buried and error messages are not actionable
+- No easy way to retrieve or organise past browsing — history is a flat unfiltered list

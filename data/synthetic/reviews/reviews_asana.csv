@@ -1,0 +1,68 @@
+rating,text,date,reviewer_role
+5,"Asana completely changed how our marketing team operates. Before, we were drowning in Slack threads and missed deadlines. Now everything has a home. The timeline view is beautiful for campaign planning and my team actually checks it. Took about 3 weeks to fully adopt but so worth it.",2025-04-03,Marketing Manager
+2,"Onboarding is a nightmare if you have a distributed team. I spent the first two weeks basically being an unpaid Asana trainer for my colleagues. The product does nothing to help you bring your team along — it just assumes everyone will figure it out. They won't.",2025-05-17,Operations Lead
+4,"Really powerful once you get past the learning curve. Custom fields and automations are genuinely game-changing for our ops workflows. But I'll be honest — the learning curve is steep and I nearly quit in the first month. The payoff is real though.",2025-06-02,Project Manager
+1,"We churned after 6 weeks. The mobile experience is so bad that our field team just refused to use it. Half our team is on-site, not at a desk. If mobile was on par with desktop we'd probably still be customers.",2025-06-29,Operations Manager
+5,"The best project management tool I've used in 15 years of product management. Portfolios and workload views are exactly what I need to manage multiple teams. The AI task suggestions are hit or miss but I appreciate that they're trying.",2025-07-11,VP of Product
+3,"Mixed feelings. The tool itself is excellent. The pricing is not. We're a 12-person team and the jump from the free plan to Business tier felt extreme. There are features I need — like custom rules — that are locked behind a tier that's priced for companies 10x our size.",2025-07-24,Startup Founder
+4,"Solid tool. My only real complaint is that the onboarding flow guides the admin (me) but does nothing for the teammates I invited. They just got dropped into a project with no context. I had to personally walk each of them through it.",2025-08-05,Engineering Lead
+2,"I've used Asana at three different companies and every time the same thing happens: it gets adopted by one team, partially used by another team, and ignored by a third. The cross-team adoption problem is never solved. It's always a political project, not just a software project.",2025-08-19,Program Manager
+5,"My freelance business runs on Asana. Client projects, my own admin, content calendar, invoicing reminders — all of it. The My Tasks view keeps me sane. I don't know how I managed clients before this.",2025-09-01,Freelance Consultant
+3,"Good product but the template library is overwhelming. I spent 45 minutes trying to pick a template and ended up using a blank project anyway. You need better filtering or a wizard that recommends templates based on what you're actually trying to do.",2025-09-14,Content Strategist
+1,"Notifications are completely broken for our use case. We turned on Slack integration and our #ops-updates channel got flooded within a day. Turned it off. Then no one knew what was happening. There's no middle ground.",2025-09-28,Head of Operations
+5,"After 6 months of use I can say this is genuinely the best tool for keeping cross-functional projects on track. Marketing, engineering, and CS all use the same project board and for the first time everyone knows what everyone else is working on. Transformative.",2025-10-10,Chief of Staff
+4,"Really good for structured work. Less good for exploratory or creative work where the scope isn't clear yet. We use it alongside Notion — Asana for execution, Notion for thinking. That combo works well.",2025-10-22,Product Designer
+2,"The recurring task feature is fundamentally confusing. I've read the help article three times and I still get surprised by when the next instance appears. It seems to recur from completion date not from a fixed schedule, which is almost never what I want.",2025-11-04,Operations Coordinator
+5,"Asana saved our Q4 launch. 15 people, 6 workstreams, 8-week timeline. Everything was tracked, everyone knew their role, nothing fell through the cracks. I've managed launches without a tool like this and I will never go back.",2025-11-18,Product Marketing Manager
+3,"The reporting features are good if you find them, which takes a while. I didn't know about the advanced search until month 2. Once I started using saved searches and custom reports my experience improved significantly. But why do I have to discover this on my own?",2025-12-01,Project Manager
+1,"Canceled after 30 days. We're a 6-person engineering team and Asana is just not built for how engineers work. No story points, no sprint concept, no GitHub integration that actually works in our workflow. We went back to Linear.",2025-12-15,Engineering Manager
+4,"The approvals feature is underrated. I manage a content team and having formal approval steps inside the task — rather than chasing people over email — has saved hours every week. I wish someone had told me about it when I signed up.",2026-01-07,Content Manager
+2,"Customer support is responsive but the help articles assume you already understand Asana's terminology. If I don't know what a 'rule' is, searching for 'how to automatically assign tasks' returns nothing useful because I'm not using the right vocabulary.",2026-01-20,Office Manager
+5,"Incredible tool for scaling a growing team. When we were 10 people we used Slack and spreadsheets. At 40 people everything was on fire. Asana brought order. The onboarding took a month to fully settle but I'd do it again without question.",2026-02-03,COO
+3,"I love Asana but I feel like I'm always one feature away from the tier I'm on. I'm on Premium and keep hitting walls that require Business. And when I look at Business it has features I'll need someday but can't justify yet. The upsell pressure is real.",2026-02-17,Marketing Director
+4,"What works: timeline, custom fields, automations, portfolio view. What doesn't: subtask visibility. Tasks buried 3 levels deep become invisible in the main view. I have missed actual deadlines because of this. It needs a 'show all nested tasks' setting.",2026-03-02,Senior Project Manager
+1,"The blank project experience is terrifying if you don't already know what you're doing. There should be a required wizard for first-time project creators. Or at least a required choice: 'do you want to use a template?' Not a button you can ignore.",2026-03-12,New User (SMB)
+5,"Five stars for the mobile app update. I manage field teams and the previous mobile experience was unusable. The new version is much better. My team actually uses it on-site now which I thought was impossible six months ago.",2026-03-18,Field Operations Manager
+3,"Pros:
+- Timeline view is genuinely excellent once your tasks have dates on them
+- Custom fields give real flexibility without needing a developer
+- My Tasks is the best personal task view I've used in any PM tool
+
+Cons:
+- Mobile app noticeably weaker than desktop, especially for non-desk workers
+- New member onboarding is essentially nonexistent — people get dropped in cold
+- Price jump from Free to Business is steep; features I actually need are all on Business
+
+Bottom line: worth it if you have a dedicated person to maintain it. Too much if everyone is expected to self-manage.",2025-08-28,Operations Manager
+4,"What I wish I'd known before signing up:
+- The onboarding checklist is easy to skip and most people skip it — don't let your team do this
+- 'My Tasks' is the key to individual adoption; lead with this when introducing it to your team
+- Automations/rules are the highest-leverage feature but nobody finds them in the first month
+- Pricing: per-seat costs add up fast if you have contractors or seasonal staff who need access
+
+Still recommending it. Just go in with realistic expectations about the ramp-up time.",2025-10-30,Program Manager
+1,"We're a 2-person design studio. We tried Asana for 3 weeks. Complete overkill for our needs. Half the features we'd never touch, and the ones we wanted were locked behind a paid tier. We went back to a shared Notion page. Asana is clearly built for teams of 20+, not for a duo trying to manage client projects without losing their minds.",2025-07-06,Freelance Designer
+2,"Pros:
+- The product itself is genuinely good when it works
+- Timeline and portfolio views are best-in-class
+
+Cons:
+- Seat pricing is punishing for companies with seasonal or temporary workers
+- We hire 15 extra people every Q4 for 8 weeks — there's no good answer for this in Asana
+- Guest access is too limited to be a real workaround; full member seats are too expensive for temp workers
+- Ended up with team leads doing double-entry to avoid the seat cost, which defeated the entire point
+
+Would upgrade my rating if they added a 'temporary contributor' seat type at a lower price point.",2026-01-15,Operations Manager
+3,"Six months in. Honest assessment:
+
+What works well:
+- Cross-functional visibility — marketing, product, and CS finally see each other's work
+- Automations once you figure them out (took me 6 weeks)
+- Reporting for executive updates
+
+What still frustrates me:
+- New members get no onboarding — I have to do it manually every time someone joins
+- Notification defaults are too aggressive; new users always complain before they figure out settings
+- Help center vocabulary doesn't match how non-PM people describe their problems
+
+Net: I'd buy it again but I'd set aside a full month for proper rollout instead of expecting people to self-serve.",2026-02-25,Head of Product

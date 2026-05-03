@@ -1,0 +1,29 @@
+Interview — Amazon Shopping App
+Participant: Sarah, 34, frequent online shopper, uses Amazon 3-4x per week
+Date: April 2026 | Interviewer: Discovery Lens team
+
+---
+
+Interviewer: Can you walk me through your last Amazon purchase?
+
+Sarah: Sure. I was looking for a birthday gift for my nephew. I searched for LEGO sets, got like 400 results, and honestly I just gave up after scrolling for a while. There's too much. I ended up buying something on a completely different site.
+
+Interviewer: What made you give up?
+
+Sarah: The filters are there but they don't really work the way I think. I set a price range, filtered by age group, but I still got stuff that was clearly out of my range or for adults. And then the sponsored products are everywhere. I can't tell what's a real recommendation versus what someone paid to show me.
+
+Interviewer: Do you trust the reviews?
+
+Sarah: I used to. Not really anymore. You can tell when there are fake reviews — all five stars, posted on the same day, very generic. I started using a browser extension that flags them but it's annoying that I need a third-party tool for that. Amazon should just do this themselves.
+
+Interviewer: How do you feel about the delivery experience?
+
+Sarah: That part is actually great. Same day, next day, I can track everything. No complaints. But returns — that's another story. Last month I returned a jacket and the refund took two weeks and I had to contact support twice. The first agent just told me to wait. The second one actually escalated it.
+
+Interviewer: Would you say you're a loyal Amazon customer?
+
+Sarah: Loyal by habit, not by love. I use it because it's convenient. But every time something goes wrong — a wrong item, a damaged package, a seller who disappears — I remember why I keep looking for alternatives. The marketplace thing is a mess. You think you're buying from Amazon but you're actually buying from some random seller in a different country.
+
+Interviewer: What would make you trust it more?
+
+Sarah: Clearer labeling of who you're actually buying from. And better filtering. And honestly just fewer ads in the search results. I feel like search has gotten worse, not better, over the years.

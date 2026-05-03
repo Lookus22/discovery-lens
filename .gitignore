@@ -1,16 +1,46 @@
+# ── Python ────────────────────────────────────────────────────────────────────
 .env
-__pycache__/
-*.py[cod]
+*.pyc
 *.pyo
-.Python
+*.py[cod]
+__pycache__/
 *.egg-info/
 dist/
 build/
-.ipynb_checkpoints/
+.Python
+
+# ── Virtual environment ────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── IDE / OS ──────────────────────────────────────────────────────────────────
+.vscode/
 .DS_Store
 Thumbs.db
-.streamlit/secrets.toml
-data/public/
-data/synthetic/**/*.pdf
-data/synthetic/**/*.csv
 .cache/
+
+# ── Streamlit secrets ─────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+.ipynb_checkpoints/
+
+# ── Project docs, context files, architecture notes ──────────────────────────
+docs/
+CLAUDE.md
+CLAUDE2.md
+
+# ── EDA notebooks (exploration only, not part of the app) ─────────────────────
+notebooks/
+
+# ── Misc root files not needed in the repo ────────────────────────────────────
+index.html
+sample.csv
+README - Copy.md
+
+# ── Old pages (replaced by screen*-v2.py / screen*-v4.py) ────────────────────
+pages/1_goal.py
+pages/2_upload.py
+pages/3_results.py
+
+# ── Backup / draft component files ────────────────────────────────────────────
+components/ost_tree_Lucasverson.py

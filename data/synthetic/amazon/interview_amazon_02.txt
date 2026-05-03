@@ -1,0 +1,25 @@
+Interview — Amazon Shopping App
+Participant: Marcus, 41, small business owner, uses Amazon for both personal and business purchasing
+Date: April 2026 | Interviewer: Discovery Lens team
+
+---
+
+Interviewer: You use Amazon for your business as well as personally — can you tell me more about that?
+
+Marcus: Yeah, I run a small landscaping company. I buy supplies on Amazon Business — tools, gloves, safety gear, irrigation parts. It's convenient but the business side feels like it was bolted on. Like they took the consumer app and just added a business account layer on top.
+
+Interviewer: What do you mean by bolted on?
+
+Marcus: The approval workflows are clunky. If one of my staff wants to order something, I have to set up a whole approval chain. Sometimes the request just disappears and no one knows why. And the purchase order integration with my accounting software breaks every few months. I've had to manually reconcile invoices twice this year already.
+
+Interviewer: What about the product selection for business?
+
+Marcus: Good on volume. Not great on quality filtering. I want to buy from suppliers who can fulfil consistently, but I can't tell from the listing whether the seller is reliable at scale. I've ordered 50 units of something and got 30 from one batch and 20 from a different batch with a different quality. No one tells you that upfront.
+
+Interviewer: How do you handle customer service issues?
+
+Marcus: I avoid it as much as possible because it takes too long. The chat is useless for anything complex. I usually just accept the loss on small items rather than spend 40 minutes with support. That's probably what they're counting on.
+
+Interviewer: What would make the business side better for you?
+
+Marcus: Verified supplier ratings. Not just star ratings — actual fulfilment reliability data. How often do they ship on time? How often do returns happen? That's what I care about. And better invoice management. I want a proper VAT invoice every time, not a PDF that I have to chase.
