@@ -44,3 +44,7 @@ pages/3_results.py
 
 # ── Backup / draft component files ────────────────────────────────────────────
 components/ost_tree_Lucasverson.py
+
+# ── Public data — full datasets (too large for GitHub) ────────────────────────
+data/public/twcs/*_twitter.csv
+data/public/twcs/twcs.csv
