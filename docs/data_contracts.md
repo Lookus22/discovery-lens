@@ -132,7 +132,7 @@ chunks: list[dict]     # output of chunker.py
     "importance": float,             # cluster_size / total_chunks, range 0.0–1.0
     "avg_sentiment": float,          # raw VADER compound mean, range -1.0 to 1.0
     "satisfaction": float,           # (avg_sentiment + 1) / 2, range 0.0–1.0
-    "source_type_diversity": float,  # unique source types in cluster / total unique source types, range 0.0–1.0
+    "source_type_diversity": float,  # unique source types in cluster / KNOWN_SOURCE_TYPES_COUNT (=4), range 0.0–1.0
     # --- Three scores shown independently in UI ---
     "odi_score": float,              # importance * (1 - satisfaction) — unmet need signal, range 0.0–1.0
     "evidence_robustness": float,    # (source_type_diversity * 0.65) + (importance * 0.35), range 0.0–1.0
@@ -146,6 +146,7 @@ Notes:
 - Deterministic — no LLM, no external API. Uses VADER compound scores per chunk averaged per cluster.
 - `opportunity_score` retired Apr 29 2026. Replaced by three independent scores. PM sign-off: Lucas.
 - Sort key is `priority_score` descending.
+- `source_type_diversity` uses a fixed denominator `KNOWN_SOURCE_TYPES_COUNT = 4` (the size of the source_type enum: interview, review, ticket, usability). This makes the metric stable across single-source and multi-source sessions — a session with only reviews caps at 0.25, honestly reflecting weak cross-source evidence. PM sign-off: Lucas, May 12 2026.
 
 ### Score definitions
 
