@@ -1,0 +1,98 @@
+chunk_id,text,source_type,label
+interview_lidl_01_020,So I haven't turned that off. M: You mentioned weekly offers — do you find those? Sarah: I see them in store more than in the app honestly.,interview,negative
+interview_revolut_01_052,"So I'm stuck. But ""stuck because the alternatives are worse"" isn't the same as loving something, you know? Interviewer: That's a great note to end on.",interview,negative
+interview_lidl_01_033,"Sarah: If they were just on. If they applied automatically based on what I'm buying. Like, the till knows I bought Pringles, the app should know there's a Pringles coupon, just give me the money off.",interview,negative
+interview_revolut_01_020,Interviewer: That's interesting. Let's talk about trust. You said you keep most of your life in Revolut now.,interview,neutral
+interview_asana_01_052,SARAH: Of course. I hope it helps. And I want to say again — I do like Asana.,interview,positive
+interview_revolut_01_013,"The catch turned out to be nothing, really. I mean, on weekends the rate is slightly worse, which I learned later. But for what I needed it was fine.",interview,negative
+interview_asana_01_024,"PRIYA: How did you find it? SARAH: I think I Googled ""Asana approval workflow"" and a blog post came up. Not from Asana's site.",interview,neutral
+interview_revolut_01_032,"But yeah, that whole experience was really frustrating because I literally couldn't reach a human when I needed one. And the thing is, I get why they do it, I'm sure they prevent fraud all the time, but as the person in the airport you just feel completely powerless. Interviewer: After that, did anything change about how you use Revolut?",interview,negative
+interview_asana_01_029,So it just sat there and now it's in my sidebar and every time I look at it I feel vaguely guilty. PRIYA: [laughs] Has that affected how you think about starting new projects? SARAH: A little.,interview,negative
+interview_revolut_01_010,And it arrived in like — I want to say two minutes? It was almost suspicious. I actually messaged my landlady to make sure it was real money.,interview,positive
+interview_revolut_01_027,"I was in Mexico City and I tried to buy a flight to Oaxaca with my Revolut card and it just got declined. And I tried again, declined. And then I checked the app and it said something like ""your card has been temporarily blocked for your protection.""",interview,negative
+interview_asana_01_044,"I do think the team trusts the tool more now than they did in the first few weeks. But also — and this is a contradiction maybe — I spend more time managing Asana than I expected. Like keeping the project clean, updating tasks, making sure descriptions have enough context.",interview,negative
+interview_lidl_01_038,"The scratch cards are silly but kind of fun, I won't lie. And when I do remember to use a coupon and it works, that's satisfying. Like a tiny win.",interview,positive
+interview_asana_01_015,And after that meeting things got way better. People started using it. I think before that meeting everyone was kind of tiptoeing around the tool.,interview,positive
+interview_lidl_01_029,Sarah: Honestly? Maybe — once a week? Twice if I'm bored.,interview,neutral
+interview_asana_01_014,"SARAH: Yeah, actually. The thing that changed it for us was — okay so I'm embarrassed I didn't do this earlier, but I booked a 30-minute team sync specifically to walk through Asana together. Like, here's how I've structured this, here's where your tasks are, here's how to mark things done.",interview,positive
+interview_revolut_01_019,"Like ""hey you just paid 12 euros at this rate""? But also that would be annoying probably. I don't know.",interview,negative
+interview_asana_01_017,"Will I delete someone's task? And just showing them that it's pretty hard to break things, and that there's an undo function, and that I could fix anything they messed up — that helped. Also I showed them where their tasks were specifically.",interview,positive
+interview_lidl_01_019,"They still pop up sometimes. There's one on a Thursday I think, the weekly offers? Which is actually useful.",interview,positive
+interview_revolut_01_031,"They unfroze the card. They didn't really apologize, they just said ""your card is now active."" Which — fine.",interview,negative
+tickets_lidl_072,Some users register with social login (Apple/Google) and don't realise. Happy to look it up if you confirm the email here. LP-1041 | login | I can log in fine but my points are gone.,ticket,negative
+tickets_lidl_010,"| Thanks for the receipt — I can see the issue, the coupon was for a different yoghurt size than the one you purchased. The 50p coupon was for the 4-pack, not the 6-pack. I appreciate this is confusing — feedback noted.",ticket,neutral
+tickets_lidl_030,"We're applying credits to affected accounts. You should see yours in 24h. LP-1016 | points_balance | I shopped on Sunday, spent £62, but my points balance hasn't moved.",ticket,negative
+tickets_lidl_107,"Unfortunately we can't reissue expired vouchers as standard, but I've made an exception for you this time. LP-1065 | voucher_redemption | How do I redeem a voucher? I have one but I dont understand the steps.",ticket,negative
+tickets_asana_010,"| Thank you for this suggestion! Default notification settings per project is not currently available, but it's a request we hear often. I've logged this as a feature request with your details attached.",ticket,neutral
+tickets_lidl_147,| Hi — fair feedback. The home screen is being redesigned to highlight the features you actually use. LP-1094 | general_complaint | The latest update made everything worse.,ticket,negative
+tickets_lidl_037,LP-1020 | points_balance | Got the £5 voucher email this morning. Voucher does not appear in app. Have refreshed and reinstalled.,ticket,negative
+tickets_lidl_006,"Please advise. | Hi — the coupon required a minimum spend of £25, not £20. Apologies if the wording was unclear.",ticket,neutral
+tickets_asana_062,We have 14 seats but the invoice shows 17. We didn't add anyone this month — where are the extra 3 seats coming from? || FOLLOW-UP (1 day later): Thanks for the explanation about guest vs member seats.,ticket,neutral
+tickets_asana_051,"I'd encourage you to speak with our sales team as they sometimes have options for early-stage startups. I'm sorry I can't offer a specific discount here, but I want to make sure you have all the options. TKT-020 | how-to | What does the little lightning bolt icon mean on some tasks?",ticket,neutral
+tickets_asana_047,"Deleted tasks go to your project's Trash, accessible from the three-dot menu in the project header — click 'View trash.' From there you can restore any recently deleted task. You can also use Ctrl+Z (or Cmd+Z on Mac) immediately after deletion to undo it, as long as you haven't navigated away.",ticket,neutral
+tickets_asana_038,"TKT-015 | how-to | How do I create a project template? I've set up a project structure that works well and I want to reuse it without duplicating the whole project every time. | To create a Template, open your project, click the three-dot menu in the project header, and select 'Save as template.'",ticket,neutral
+tickets_lidl_128,LP-1079 | payment_issue | Apple Pay doesn't work in store with this app. Says 'pay later in app' but I just want to pay now. | Hi — Lidl Plus doesn't currently support in-app payment.,ticket,negative
+tickets_lidl_106,That's not long. | Hi — voucher validity periods vary by promotion. We're reviewing whether 7 days is long enough.,ticket,negative
+tickets_lidl_111,"LP-1067 | voucher_redemption | The 1-hour expiry on redeemed vouchers is ridiculous. I queue for 5 mins, lose track of time, voucher gone. | Hi — we agree the 1-hour limit is tight in practice.",ticket,negative
+tickets_revolut_031,"Your feedback helps us improve. If you'd still like to proceed, I'll send a closure form to your registered email within 1 hour. | I appreciate the question.",ticket,neutral
+tickets_revolut_010,"| Hi David, I can see a security flag was triggered due to unusual location activity. I've manually verified the transaction and removed the temporary block. Please try the transaction again.",ticket,neutral
+tickets_lidl_009,LP-1005 | coupon_not_applied | Bought a multipack of yoghurts on offer in the app today. The 50p off didn't come off the bill. Receipt attached.,ticket,negative
+tickets_lidl_011,LP-1006 | coupon_not_applied | ACTIVATED COUPON DOES NOT WORK AT TILL. THIS IS NOT THE FIRST TIME. PLEASE FIX.,ticket,negative
+tickets_revolut_025,"Amount: 4500 USD. I need this for a flight tomorrow. The app shows no error, just a spinner.",ticket,negative
+lidl_plus_reviews_526,"Works well. Just occasionally the coupons take time to activate. | Lidl Plus
+ebbfbe0a-4b08-4cf2-9df5-46ded3adc4e1 | Three stars because it sometimes works brilliantly and sometimes fails.",review,neutral
+lidl_plus_reviews_497,"Great app. | Lidl Plus
+cb3064d1-3d97-489f-a9c7-96daa8ca5068 | Good app! Wish it showed more stores or had a better map feature.",review,neutral
+reviews_revolut_064,"Second, the fee structure lacks transparency. Small, cumulative transaction costs are not clear | Revolut
+93cec775-3bdc-4f5e-a862-c17921cf69c5 | very good and transparent | Revolut
+cba4ec49-f8bd-4721-a5f9-1e2df0a51da1 | I like it, it is fast and simple. | Revolut
+c1f94492-10ed-40ed-a6c7-a10699a44e54 | Excellent and easy to work with!",review,negative
+lidl_plus_reviews_364,"| Lidl Plus
+64b03771-e753-44c8-828a-e1a5f3b83093 | Three weeks of trying and still can't get coupons to work. | Lidl Plus
+44fd5685-c2be-4140-9cc6-9440677bc18b | Downloaded it last month and already saved over €30. | Lidl Plus
+f943f928-48f5-489a-8a4b-213566f73d8c | Three stars because it saves me some money but is buggy.",review,negative
+reviews_revolut_067,"| Revolut
+38e3f323-4b4f-4328-87f1-db3d534d901a | The best online banking app | Revolut
+ceb169d9-c1c6-402f-b568-fad6da0cce64 | just a great app, well designed, reliable, great service too | Revolut
+1c92b4b4-57eb-4046-aed9-8c688dffa255 | fast | Revolut
+fdf8362a-575b-4568-955c-e6978a3a6687 | thank | Revolut
+37cbb803-0edc-4df9-9b79-388193db7d40 | I like everything about this app and this account. From regular banking to investing, it the perfect place to do it all. And, you don't have to be an expert in finance to appreciate it.",review,positive
+lidl_plus_reviews_452,"Love the concept but frustrated by the bugs. | Lidl Plus
+d45cc15b-b28d-46bb-85b3-c12e5e8204b5 | Solid app with good offers. I'd love more variety in the available coupons.",review,negative
+lidl_plus_reviews_177,"| Lidl Plus
+61c25223-3d77-4ef7-9c59-f906f13a3873 | Great weekly offers and the app never lets me down. | Lidl Plus
+8ca1279a-8ecc-4eb5-a96a-ddd527bc562b | Waste of storage. Nothing works.",review,negative
+lidl_plus_reviews_321,"Even my mum figured it out easily! | Lidl Plus
+86327e4a-b453-4a46-9be4-6fbe459a7b74 | This app is an embarrassment for a company like Lidl. | Lidl Plus
+5de3a2d1-3de3-43e6-9511-3c008630cf87 | Can't get it to work consistently.",review,negative
+lidl_plus_reviews_581,"| Lidl Plus
+be445bcc-eea4-41e5-b0e9-b33b6f455f17 | Works great at all Lidl stores I visit. Highly recommended. | Lidl Plus
+4ebea1e5-147f-49f8-b1a8-2fb2e1f51a47 | Works well.",review,positive
+lidl_plus_reviews_287,"Would love to see more personalised offers. | Lidl Plus
+1e539268-47f6-4bc8-90e1-c5780dfa6aef | Functional but slow. I often have to restart it before shopping.",review,negative
+reviews_revolut_066,Everything at ease. Disputes handled quickly and within specific time. I like this app.,review,positive
+lidl_plus_reviews_117,"| Lidl Plus
+99b20c96-2001-436c-a745-16a60af7dc18 | Really good app. The interface is clean and simple to navigate. | Lidl Plus
+6bcc5e94-98ce-4efa-a75d-38bf746495a3 | Acceptable app.",review,positive
+lidl_plus_reviews_466,"Completely reliable and very useful. | Lidl Plus
+3fcaa99e-5231-4bec-82a6-a10eb0430d5f | I'm always surprised by how good the deals are. Great app.",review,positive
+reviews_revolut_068,"Even a small investor like myself can take advantage it's usefulness and ability. | Revolut
+c84183fb-4234-4612-9f37-ed25c55e2e0f | okay I'm all for security but this is RIDICULOUS, I just spent half an hour trying to get back into MY account because I have extremely shaky hands, like my bad that I can't stay still enough for you, then my selfie gets rejected 5 times, then I get a ""we're reviewing your submission"" to be then told they couldn't verify it was MY face then I try again and log in straight away! My actual bank doesn't do this much and at least they try to be accessible for people | Revolut
+5966a979-c6bc-45a3-b338-9f12b2bb3362 | enjoying my experience so far | Revolut
+af4d26cb-7bb6-4309-a20c-73a277d1fdc1 | Safe fast easy | Revolut
+ec77e94c-bbf1-47b4-a314-c4f15c795b9e | Hands down, best online banking app so far at this moment.",review,negative
+lidl_plus_reviews_158,"Great updates recently. | Lidl Plus
+88599b4e-2d34-4827-b772-d350921a9104 | The plus card works great and the app never crashes on me. | Lidl Plus
+51f4db79-da90-478b-a73e-fc441eb8587a | Good loyalty app.",review,positive
+lidl_plus_reviews_226,"Could be better. | Lidl Plus
+0282c15a-3e5a-4b4b-bfa7-5de2a971df57 | Easy to use and full of good deals. What else could you ask for?",review,positive
+lidl_plus_reviews_075,"| Lidl Plus
+3f57f88d-3de9-4e9e-af33-e62833fa2a41 | Very useful for saving money. The design is nice. A few small improvements needed.",review,neutral
+lidl_plus_reviews_208,"| Lidl Plus
+cdf37350-e2df-40d9-bacf-ddb59e72b4c0 | Really appreciate the savings. App design is clean but could be more intuitive. | Lidl Plus
+5a804764-b813-4b12-93d9-9e4a26ca234d | Works perfectly in all my local Lidl stores.",review,neutral
+lidl_plus_reviews_441,"Crashes constantly. One star is too generous. | Lidl Plus
+10f1a520-4992-43ed-a5cf-f3906a79a912 | My weekly Lidl run wouldn't be the same without this app.",review,negative
+lidl_plus_reviews_357,"| Lidl Plus
+aca3f225-7fa8-4b8e-a4cc-0162fedb6b29 | Never had a single problem with this app. It just works. | Lidl Plus
+dadc9049-42a5-458b-902c-0735b3acfeba | Really appreciate the savings.",review,positive
