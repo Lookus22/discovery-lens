@@ -130,8 +130,11 @@ Notes:
 
 ```python
 # Input
-clusters: list[dict]   # output of clusterer.py
-chunks: list[dict]     # output of chunker.py
+clusters:         list[dict]        # output of clusterer.py
+chunks:           list[dict]        # output of chunker.py
+goal_embedding:   np.ndarray | None # 384-dim goal embedding — pass None to skip goal_relevance
+chunk_embeddings: np.ndarray | None # shape (n_chunks, 384), same index order as chunks
+                                    # pass None to skip goal_relevance
 # total_chunks and total_source_types are derived internally — no extra args needed
 
 # Output — list of dicts, one per cluster, sorted by priority_score descending
@@ -142,22 +145,34 @@ chunks: list[dict]     # output of chunker.py
     # --- Raw signals (available for UI display and debugging) ---
     "importance": float,             # cluster_size / total_chunks, range 0.0–1.0
     "avg_sentiment": float,          # lxyuan compound mean (positive→+score, negative→-score, neutral→0), range -1.0 to 1.0
+
     "satisfaction": float,           # (avg_sentiment + 1) / 2, range 0.0–1.0
-    "source_type_diversity": float,  # unique source types in cluster / KNOWN_SOURCE_TYPES_COUNT (=4), range 0.0–1.0
-    # --- Three scores shown independently in UI ---
-    "odi_score": float,              # importance * (1 - satisfaction) — unmet need signal, range 0.0–1.0
+    "source_type_diversity": float,  # unique source types in cluster / 6 (fixed denominator), range 0.0–1.0
+    # --- Four scores shown independently in UI ---
+    "odi_score": float,              # importance * (1 - satisfaction), range 0.0–1.0
     "evidence_robustness": float,    # (source_type_diversity * 0.65) + (importance * 0.35), range 0.0–1.0
-    "priority_score": float          # (odi_score * 0.60) + (evidence_robustness * 0.40), range 0.0–1.0
+    "goal_relevance": float,         # mean cosine_sim(goal_embedding, chunk_embeddings) per cluster, range 0.0–1.0
+                                     # 1.0 if goal_embedding=None (no dampening)
+    "priority_score": float,         # [(odi_score * 0.60) + (evidence_robustness * 0.40)]
+                                     # × max(goal_relevance, 0.20), range 0.0–1.0
+    # --- Recommendation label (D-02) ---
+    "recommendation": str,           # "Act" | "Validate" | "Monitor" | "Deprioritise"
   },
   ...
 ]
 ```
 
 Notes:
-- Deterministic — no LLM, no external API. Uses lxyuan/distilbert-base-multilingual-cased-sentiments-student compound scores per chunk averaged per cluster. Replaced VADER May 13 2026.
-- `opportunity_score` retired Apr 29 2026. Replaced by three independent scores. PM sign-off: Lucas.
+
+- Deterministic — no LLM, no external API.
+- Sentiment model: lxyuan/distilbert-base-multilingual-cased-sentiments-student (replaced VADER May 13 2026, T-08).
+- `source_type_diversity` uses a fixed denominator of 6 (all recognised source types). Stable across sessions.
+- `goal_relevance` uses unweighted mean cosine similarity until T-09 (BERTopic + HDBSCAN) lands.
+  After T-09, replace with membership-weighted mean. Requires revalidation of D-03 floor value. 
+- `priority_score` incorporates goal_relevance as a multiplicative dampening factor floored at 0.20.
+  A cluster is never zeroed out — it stays visible in the UI but ranked lower. D-03, May 14 2026.
 - Sort key is `priority_score` descending.
-- `source_type_diversity` uses a fixed denominator `KNOWN_SOURCE_TYPES_COUNT = 6` (the size of the source_type enum: interview, review, ticket, usability, social, internal — expanded May 13 2026, see docs/decisions.md). This makes the metric stable across single-source and multi-source sessions — a session with only one source type caps at 0.1667 (1/6), honestly reflecting weak cross-source evidence. PM sign-off: Lucas, May 13 2026.
+- Weights confirmed stable by T-16 sensitivity analysis (May 14 2026): min tau=0.9048, mean tau=0.9947.
 
 ### Score definitions
 
@@ -165,7 +180,20 @@ Notes:
 |-------|---------|-----------------|
 | `odi_score` | `importance × (1 - satisfaction)` | How underserved is this need? |
 | `evidence_robustness` | `(source_type_diversity × 0.65) + (importance × 0.35)` | How robustly evidenced across source types? |
-| `priority_score` | `(odi_score × 0.60) + (evidence_robustness × 0.40)` | What should a PM act on first? |
+| `goal_relevance` | `mean cosine_sim(goal_embedding, chunk_embeddings)` clipped to [0, 1] | How directly does this cluster address the stated goal? |
+| `priority_score` | `[(odi_score × 0.60) + (evidence_robustness × 0.40)] × max(goal_relevance, 0.20)` | What should a PM act on first? |
+
+### Recommendation label thresholds (D-02, May 14 2026)
+
+| Label | Condition | Meaning |
+|-------|-----------|---------|
+| `Act` | `odi_score ≥ 0.10` AND `evidence_robustness ≥ 0.40` | High unmet need, well-evidenced — prioritise for roadmap |
+| `Validate` | `odi_score ≥ 0.10` AND `evidence_robustness < 0.40` | Strong signal, thin evidence — run more research first |
+| `Monitor` | `odi_score < 0.10` AND `evidence_robustness ≥ 0.40` | Well-evidenced but not urgently underserved — keep on radar |
+| `Deprioritise` | `odi_score < 0.10` AND `evidence_robustness < 0.40` | Weak signal, sparse evidence — not worth roadmap space now |
+
+Thresholds calibrated to synthetic dataset score distributions (May 14 2026).
+Re-evaluate when real PM data is loaded. 
 
 ---
 
