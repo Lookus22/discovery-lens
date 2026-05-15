@@ -145,7 +145,6 @@ tab_ost, tab_matrix, tab_heatmap = st.tabs(["Opportunities", "Priority matrix", 
 
 # ── TAB 1: OPPORTUNITIES ──────────────────────────────────────────────────────
 with tab_ost:
-
     # Section label
     st.markdown(
         f'<div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;'
@@ -155,17 +154,17 @@ with tab_ost:
         unsafe_allow_html=True,
     )
 
-    # ── Recommendation label logic (T-15 Steps 1, 2, 4) ──────────────────────
-    _THRESHOLD = 0.5
+    _ODI_THRESHOLD = 0.10
+    _ROB_THRESHOLD = 0.40
     _REC = {
-        ("high", "high"): ("Act",          "#639922", "Strong unmet need with robust cross-source evidence. Move this to your roadmap now."),
-        ("high", "low"):  ("Validate",     "#EF9F27", "Strong unmet need but thin evidence. Run a quick study to confirm before committing."),
-        ("low",  "high"): ("Monitor",      "#0C447C", "Well-evidenced theme but need appears satisfied. Watch for shifts over time."),
+        ("high", "high"): ("Act", "#639922", "Strong unmet need with robust cross-source evidence. Move this to your roadmap now."),
+        ("high", "low"):  ("Validate", "#EF9F27", "Strong unmet need but thin evidence. Run a quick study to confirm before committing."),
+        ("low",  "high"): ("Monitor", "#0C447C", "Well-evidenced theme but need appears satisfied. Watch for shifts over time."),
         ("low",  "low"):  ("Deprioritise", "#888888", "Weak signal and low evidence. Park this and revisit if more data surfaces."),
     }
 
     def _recommendation(odi: float, rob: float) -> tuple[str, str, str]:
-        key = ("high" if odi >= _THRESHOLD else "low", "high" if rob >= _THRESHOLD else "low")
+        key = ("high" if odi >= _ODI_THRESHOLD else "low", "high" if rob >= _ROB_THRESHOLD else "low")
         return _REC[key]
 
     # ── Opportunity cards (3 per row) ─────────────────────────────────────────
